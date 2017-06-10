@@ -21,7 +21,8 @@ struct UploadResult {
 }
 class KairosManager {
     static let shared = KairosManager()
-    
+
+    let cloudManager = CloudinaryManager.shared
  
     func detect( _ data: KairosImageData,
                  success: @escaping BasicClosure,
@@ -74,29 +75,17 @@ class KairosManager {
         guard let image = member.image else {
             return failure(NSError())
         }
-        
-       let imageStr = KairosAPI.shared.convertImageToBase64String(image: image)
-        
-        
-        let body = [
-            "file": imageStr,
-            "folder": "user1",
-            "upload_preset": "personfinder"
-            
-        ] as [String : Any]
     
-        // Example - /v2/media
-        KairosAPI.shared.request(method: "v1_1/globanthackmiami/image/upload",
-                                 data: body) { (result) in
-                                    
-            let url = result["url"] as! String
-            let data = UploadResult(url: url)
-            success(data)
-        }
-        
-        
-
-    
+        cloudManager.upload(image: image, completion: { (url, error) in
+            if error == nil {
+                if let url = url {
+                    let data = UploadResult(url: url)
+                    success(data)
+                }
+            } else {
+                failure(error!)
+            }
+        })
     }
     
     func enroll(_ user: User,
