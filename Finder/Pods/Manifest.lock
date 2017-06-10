@@ -1,4 +1,7 @@
 PODS:
+  - Alamofire (4.4.0)
+  - Cloudinary (2.0.2):
+    - Alamofire (~> 4.1)
   - Firebase/Auth (4.0.2):
     - Firebase/Core
     - FirebaseAuth (= 4.0.0)
@@ -47,12 +50,15 @@ PODS:
   - Protobuf (3.3.0)
 
 DEPENDENCIES:
+  - Cloudinary
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
   - Firebase/Messaging
 
 SPEC CHECKSUMS:
+  Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
+  Cloudinary: 2d7c889fc4329ebc59c7967ec277df882b2602d5
   Firebase: c7ad0731eab26d18a3fc547dd048b0f7cd9c63ae
   FirebaseAnalytics: 4d7040fefc3cd8b291cde35f12cf063d7963f15d
   FirebaseAuth: ebb6abcbabae00fc47446d690c19ce68d8484fde
@@ -64,6 +70,6 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 30d874b96d0d76028f61fbd122801e3f030d47db
   Protobuf: d582fecf68201eac3d79ed61369ef45734394b9c
 
-PODFILE CHECKSUM: 61091572ff55290b47a81766c953c1e34658a2d4
+PODFILE CHECKSUM: 5a71f3ce874967f5fdc28d8b4e09821c54c13ca9
 
 COCOAPODS: 1.2.1

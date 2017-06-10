@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16A2323a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="q5o-8u-qql">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="q5o-8u-qql">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -36,7 +36,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="EmptyCell" rowHeight="166" id="VlD-cm-4Wa">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="EmptyCell" rowHeight="166" id="VlD-cm-4Wa" customClass="FamilyMemberCell" customModule="Finder" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="166"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VlD-cm-4Wa" id="xxz-yC-Zst">
@@ -81,6 +81,52 @@
                                         <constraint firstItem="dYw-WB-wwi" firstAttribute="leading" secondItem="xxz-yC-Zst" secondAttribute="leadingMargin" constant="8" id="GiW-Rv-DKi"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" rowHeight="166" id="Pt4-vT-4g5" customClass="FamilyMemberCell" customModule="Finder" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="194" width="375" height="166"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Pt4-vT-4g5" id="sOA-f3-r1F">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="166"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z9j-qe-2ZW">
+                                            <rect key="frame" x="16" y="10" width="351" height="143"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lgP-rq-L9j">
+                                                    <rect key="frame" x="265" y="56" width="78" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="Report"/>
+                                                    <connections>
+                                                        <action selector="didTapReportButton:" destination="Pt4-vT-4g5" eventType="touchUpInside" id="EG0-UM-SQF"/>
+                                                    </connections>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TDk-KV-3dh">
+                                                    <rect key="frame" x="91" y="61" width="148" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XWY-wX-uDr">
+                                                    <rect key="frame" x="8" y="34" width="75" height="75"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Z9j-qe-2ZW" secondAttribute="bottom" constant="4.5" id="AI0-G8-GhD"/>
+                                        <constraint firstItem="Z9j-qe-2ZW" firstAttribute="leading" secondItem="sOA-f3-r1F" secondAttribute="leadingMargin" constant="8" id="F9t-yp-rFR"/>
+                                        <constraint firstItem="Z9j-qe-2ZW" firstAttribute="top" secondItem="sOA-f3-r1F" secondAttribute="topMargin" constant="2" id="R9d-el-iUO"/>
+                                        <constraint firstItem="Z9j-qe-2ZW" firstAttribute="trailing" secondItem="sOA-f3-r1F" secondAttribute="trailingMargin" id="iB7-Io-gCd"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="memberImageView" destination="XWY-wX-uDr" id="J8x-C3-JC2"/>
+                                    <outlet property="nameLabel" destination="TDk-KV-3dh" id="67N-5N-uY8"/>
+                                    <outlet property="statusButton" destination="lgP-rq-L9j" id="Xvn-Oo-IOU"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

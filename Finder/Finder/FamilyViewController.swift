@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FamilyViewController: UITableViewController {
+class FamilyViewController: UITableViewController, FamilyMemberCellDelegate {
     
     var array: [FamilyMember] = []
 
@@ -48,7 +48,7 @@ class FamilyViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
+        return 10
         if (isEmpty) {
             return 1
         }
@@ -58,30 +58,36 @@ class FamilyViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        var cell: UITableViewCell? = nil
+        var cell:FamilyMemberCell? = self.tableView.dequeueReusableCell(withIdentifier: "Cell") as? FamilyMemberCell
         
+        isEmpty = false
         if (isEmpty) {
             
-            cell = tableView.dequeueReusableCell(withIdentifier: "EmptyCell")
+            cell = tableView.dequeueReusableCell(withIdentifier: "EmptyCell") as? FamilyMemberCell
             if (cell == nil) {
-                cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "EmptyCell")
+                cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "EmptyCell") as? FamilyMemberCell
             }
 
         } else {
             
-            let member = self.array[indexPath.row]
-            cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
+      //     let member = self.array[indexPath.row]
+            cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as? FamilyMemberCell
             if (cell == nil) {
-                cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "Cell")
+                cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "Cell") as? FamilyMemberCell
             }
             
+              cell?.delegate = self
             //placeholder
-            cell?.imageView?.image = UIImage(named: "placeholder")
-            cell?.textLabel?.text = member.name
+            cell?.memberImageView.image = UIImage(named: "placeholder")
+            cell?.nameLabel.text = "Bob"
             
-            if (member.image != nil) {
-                cell?.imageView?.image = member.image
-            }
+            // Let's keep track of the index in our data source
+            cell?.cellIndex = indexPath.row
+            
+//            if (member.image != nil) {
+//                cell?.imageView?.image = member.image
+//            }
+            
         }
         return cell!
     }
@@ -102,6 +108,12 @@ class FamilyViewController: UITableViewController {
             }
         }
     }
+    
+    func changeReportStatus(cellIndex: Int) {
+        print("Cell index: \(cellIndex)")
+    }
+
+    
     /*
     // MARK: - Navigation
 
