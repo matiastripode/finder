@@ -21,7 +21,7 @@ struct KairosConfig {
 
 
 public class KairosAPI {
-    let api_url: String = "https://api.kairos.com/"
+    let api_url: String = "https://api.cloudinary.com/v1_1/"
     let app_id: String
     let app_key: String
     var headers: HTTPURLResponse?

@@ -7,18 +7,22 @@
 //
 
 import Foundation
-
+import UIKit
 
 typealias Base64ImageData = String
+typealias UploadSuccessClosure = (UploadResult) -> Void
 
 struct KairosImageData {
     var image: Base64ImageData
 }
 
-
+struct UploadResult {
+    var url: String
+}
 class KairosManager {
     static let shared = KairosManager()
     
+ 
     func detect( _ data: KairosImageData,
                  success: @escaping BasicClosure,
                  failure: @escaping FailureClosure) {
@@ -59,6 +63,39 @@ class KairosManager {
             }
         }
 
+    }
+    
+    func upload(_ member: FamilyMember,
+                success: @escaping UploadSuccessClosure,
+                failure: @escaping FailureClosure){
+    
+        guard let image = member.image else {
+            return failure(NSError())
+        }
+        
+        let imageData: NSData = UIImageJPEGRepresentation(image, 0.4)! as NSData
+        let imageStr = imageData.base64EncodedData(options: .endLineWithCarriageReturn)
+        
+        
+        let body = [
+            "file": ["data": imageStr],
+            "folder": "user1",
+            "upload_preset": "personfinder"
+            
+        ] as [String : Any]
+    
+        // Example - /v2/media
+        KairosAPI.shared.request(method: "globanthackmiami/image/upload",
+                                 data: body) { (result) in
+                                    
+            let url = result["url"] as! String
+            let data = UploadResult(url: url)
+            success(data)
+        }
+        
+        
+
+    
     }
     
     func enroll(_ user: User,
