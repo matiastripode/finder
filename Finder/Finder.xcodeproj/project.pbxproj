@@ -94,14 +94,7 @@
 				3C3F0F261EEC43D100A79C9B /* GoogleService-Info.plist */,
 				3C210C9F1EEC3DFB00BB559B /* Backend */,
 				2FBCF46F1EEC2805000DFE5F /* AppDelegate.swift */,
-				2FBCF4831EEC3049000DFE5F /* ProfileViewController.swift */,
-				2FBCF4851EEC3085000DFE5F /* FamilyViewController.swift */,
-				2FBCF48F1EEC598E000DFE5F /* LoginViewController.swift */,
-				2FBCF4871EEC30B9000DFE5F /* FinderViewController.swift */,
 				2FBCF4751EEC2805000DFE5F /* Main.storyboard */,
-				2FBCF4891EEC448F000DFE5F /* AddPersonViewController.swift */,
-				2FBCF48B1EEC44CC000DFE5F /* FindResultViewController.swift */,
-				2FBCF48D1EEC474C000DFE5F /* PersonFoundViewController.swift */,
 				2FBCF4781EEC2805000DFE5F /* Assets.xcassets */,
 				2FBCF47A1EEC2805000DFE5F /* LaunchScreen.storyboard */,
 				2FBCF47D1EEC2805000DFE5F /* Info.plist */,
@@ -112,6 +105,13 @@
 		2FBCF4911EEC59FB000DFE5F /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				2FBCF4831EEC3049000DFE5F /* ProfileViewController.swift */,
+				2FBCF4851EEC3085000DFE5F /* FamilyViewController.swift */,
+				2FBCF48F1EEC598E000DFE5F /* LoginViewController.swift */,
+				2FBCF4871EEC30B9000DFE5F /* FinderViewController.swift */,
+				2FBCF4891EEC448F000DFE5F /* AddPersonViewController.swift */,
+				2FBCF48B1EEC44CC000DFE5F /* FindResultViewController.swift */,
+				2FBCF48D1EEC474C000DFE5F /* PersonFoundViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";

@@ -84,8 +84,8 @@ public class KairosAPI {
         var errorMessage = "Could not get response"
         
         if errors != nil {
-            errorCode = (errors![0] as? [String : AnyObject])!["ErrCode"] as! Int
-            errorMessage = (errors![0] as? [String : AnyObject])!["Message"] as! String
+//            errorCode = (errors![0] as? [String : AnyObject])!["ErrCode"] as! Int
+//            errorMessage = (errors![0] as? [String : AnyObject])!["Message"] as! String
         }
         
         print("Error (\(errorCode)): \(errorMessage)")
