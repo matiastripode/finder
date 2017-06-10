@@ -64,7 +64,6 @@ class AddPersonViewController: UIViewController, UITextFieldDelegate, UIImagePic
     @IBAction func dismissKeyboard() {
         self.textField.resignFirstResponder()
     }
-
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [String : Any]) {
         
@@ -72,7 +71,6 @@ class AddPersonViewController: UIViewController, UITextFieldDelegate, UIImagePic
             imageView.contentMode = .scaleAspectFit
             imageView.image = pickedImage
             imageUploaded = true
-
         }
         
         dismiss(animated: true, completion: nil)

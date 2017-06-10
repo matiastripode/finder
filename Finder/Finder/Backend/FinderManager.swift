@@ -19,17 +19,24 @@ class FinderManager {
              succes: @escaping BasicClosure,
              failure: @escaping FailureClosure) {
      
-        
-        KairosManager.shared.enroll(user,
-                                    member: member,
-                                    success: {
-                                        
-            let dictionary = [ "username": user.name ]
-            
-            DataService.shared.writeData(by: "users/",
-                                         data: dictionary as RawDataType, success: { (result) in
-                                            succes()
+        //1. Upload File
+        KairosManager.shared.upload(member, success: { result in
+            var updated = member
+            updated.image_url = result.url
+            // 2. Enroll
+            KairosManager.shared.enroll(user,
+                                        member: member,
+                                        success: {
+                                            
+                                            //3. Add to firebase
+                                            let dictionary = [ "username": user.name ]
+                                            
+                                            DataService.shared.writeData(by: "users/",
+                                                                         data: dictionary as RawDataType, success: { (result) in
+                                                                            succes()
+                                            }, failure: failure)
             }, failure: failure)
+
         }, failure: failure)
     }
     
