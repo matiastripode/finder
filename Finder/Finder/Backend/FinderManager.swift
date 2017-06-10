@@ -12,11 +12,25 @@ typealias SuccessMemberClosure = (FamilyMember?) -> Void
 
 
 class FinderManager {
+    static let shared = FinderManager()
+    
     func add(_ member: FamilyMember,
              to user: User,
              succes: @escaping BasicClosure,
              failure: @escaping FailureClosure) {
+     
         
+        KairosManager.shared.enroll(user,
+                                    member: member,
+                                    success: {
+                                        
+            let dictionary = [ "username": user.name ]
+            
+            DataService.shared.writeData(by: "users/",
+                                         data: dictionary as RawDataType, success: { (result) in
+                                            succes()
+            }, failure: failure)
+        }, failure: failure)
     }
     
     

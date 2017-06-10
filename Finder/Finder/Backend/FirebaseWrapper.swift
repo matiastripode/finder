@@ -128,7 +128,7 @@ public struct FirebaseWrapper : FirebaseWrapperType {
             success(snapshot.value as AnyObject)
         }) { (error) in
             print(error)
-            failure(error as NSError)
+            failure(error)
         }
     }
     
