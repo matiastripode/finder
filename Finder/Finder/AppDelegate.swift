@@ -19,10 +19,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         configureFirebase()
 
         
-        UserManager.shared.currentUser = User(family: nil,
-                                              name: "Matias Tripode",
-                                              phone: "206-345-2354",
-                                              galleryName: "20170610Globant")
+//        if let phone = UserDefaults.standard.object(forKey: "userPhone") {
+            UserManager.shared.currentUser = User(family: nil,
+                                                  name: "Matias Tripode",
+                                                  phone: "123",
+                                                  galleryName: "20170610Globant")
+
+//        } else {
+//            
+//        }
+        
         
 
         /* TO-DO: NEXT LINES ARE FOR TESTING ONLY

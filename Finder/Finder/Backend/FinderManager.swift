@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 typealias SuccessMemberClosure = (FamilyMember?) -> Void
 
@@ -23,18 +24,24 @@ class FinderManager {
         KairosManager.shared.upload(member, success: { result in
             var updated = member
             updated.image_url = result.url
+            
+            UserManager.shared.currentUser?.family?.append(updated)
+            UserManager.shared.saveFamily()
+
             // 2. Enroll
             KairosManager.shared.enroll(user,
-                                        member: member,
+                                        member: updated,
                                         success: {
+                                            succes()
                                             
-                                            //3. Add to firebase
-                                            let dictionary = [ "username": user.name ]
                                             
-                                            DataService.shared.writeData(by: "users/",
-                                                                         data: dictionary as RawDataType, success: { (result) in
-                                                                            succes()
-                                            }, failure: failure)
+//                                            //3. Add to firebase
+//                                            let dictionary = [ "username": user.name ]
+//                                            
+//                                            DataService.shared.writeData(by: "users/",
+//                                                                         data: dictionary as RawDataType, success: { (result) in
+//                                                                            succes()
+//                                            }, failure: failure)
             }, failure: failure)
 
         }, failure: failure)
@@ -52,6 +59,39 @@ class FinderManager {
     func retrieveFamily(_ user: User,
                         succes: @escaping SuccessMemberClosure,
                         failure: @escaping FailureClosure) {
+        
+    }
+    
+    func report (_ image: UIImage,
+                 succes: @escaping BasicClosure,
+                 failure: @escaping FailureClosure) {
+        
+        //1. recognize
+        KairosManager.shared.recognize(image, success: { data in
+            //2. find match in firebase
+            
+            DataService.shared.retrieveData(by: "people/\(data.subject_id)", success: { (result) in
+                //3. find the owner
+                if let result = result  {
+                    let owner = result["reporterid"] as? String
+                    
+                    DataService.shared.retrieveData(by: "reporters/\(String(describing: owner))",
+                                                    success: { (result) in
+                                                        guard let result = result else{
+                                                            return failure(NSError())
+                                                        }
+
+                            //4. Send push notificaitons
+                                                        
+                    }, failure: failure)
+                }
+                
+                
+                
+            }, failure: failure)
+            
+        }, failure: failure)
+        
         
     }
 }
