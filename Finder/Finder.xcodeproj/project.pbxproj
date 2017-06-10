@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2FAD1B6E1EEC878600826A17 /* FinderResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAD1B6D1EEC878600826A17 /* FinderResultViewController.swift */; };
 		2FBCF4701EEC2805000DFE5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBCF46F1EEC2805000DFE5F /* AppDelegate.swift */; };
 		2FBCF4771EEC2805000DFE5F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FBCF4751EEC2805000DFE5F /* Main.storyboard */; };
 		2FBCF4791EEC2805000DFE5F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FBCF4781EEC2805000DFE5F /* Assets.xcassets */; };
@@ -321,7 +320,6 @@
 				3C3F0F431EEC66F800A79C9B /* UserManager.swift in Sources */,
 				652CE0AE1EEC76210089347B /* CloudinaryManager.swift in Sources */,
 				3C3F0F321EEC493200A79C9B /* FinderManager.swift in Sources */,
-				2FAD1B6E1EEC878600826A17 /* FinderResultViewController.swift in Sources */,
 				3C3F0F301EEC461400A79C9B /* User.swift in Sources */,
 				3C3F0F371EEC4ACB00A79C9B /* KairosManager.swift in Sources */,
 				2FBCF4861EEC3085000DFE5F /* FamilyViewController.swift in Sources */,
@@ -459,7 +457,7 @@
 				INFOPLIST_FILE = Finder/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = whate.com;
+				PRODUCT_BUNDLE_IDENTIFIER = Pirates.Finder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -474,7 +472,7 @@
 				INFOPLIST_FILE = Finder/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = whate.com;
+				PRODUCT_BUNDLE_IDENTIFIER = Pirates.Finder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
