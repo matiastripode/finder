@@ -25,7 +25,6 @@ class FamilyViewController: UITableViewController, FamilyMemberCellDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.tableView.reloadData()
        
         UserManager.shared.getFamily()
         
@@ -35,6 +34,8 @@ class FamilyViewController: UITableViewController, FamilyMemberCellDelegate {
         } else {
             isEmpty = true
         }
+        
+        self.tableView.reloadData()
     }
     
     override func didReceiveMemoryWarning() {

@@ -10,10 +10,14 @@ import UIKit
 
 class ProfileViewController: UIViewController {
 
+    @IBOutlet weak var textField: UITextField!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        if let phone = UserDefaults.standard.object(forKey: "userPhone") as? String {
+            self.textField.text = phone
+        }
     }
 
     override func didReceiveMemoryWarning() {

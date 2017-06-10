@@ -18,18 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         configureFirebase()
 
-        
-//        if let phone = UserDefaults.standard.object(forKey: "userPhone") {
-            UserManager.shared.currentUser = User(family: nil,
-                                                  name: "Matias Tripode",
-                                                  phone: "123",
-                                                  galleryName: "20170610Globant")
-
-//        } else {
-//            
-//        }
-        
-        
 
         /* TO-DO: NEXT LINES ARE FOR TESTING ONLY
         let member = FamilyMember(image: nil,
@@ -52,12 +40,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         */
         
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+
+        var initialViewController = storyboard.instantiateViewController(withIdentifier: "TabBarViewController")
+        
+        if let phone = UserDefaults.standard.object(forKey: "userPhone") as? String {
+            UserManager.shared.currentUser = User(family: nil,
+                                                  name: "Matias Tripode",
+                                                  phone: phone,
+                                                  galleryName: "globant123")
+            
+        } else {
+            initialViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
+        }
+        
+        self.window?.rootViewController = initialViewController
+        self.window?.makeKeyAndVisible()
+        
         return true
     }
+    
     func configureFirebase() {
         FirebaseApp.configure()
-        
     }
+    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
