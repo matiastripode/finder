@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2FAD1B6E1EEC878600826A17 /* FinderResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAD1B6D1EEC878600826A17 /* FinderResultViewController.swift */; };
 		2FBCF4701EEC2805000DFE5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBCF46F1EEC2805000DFE5F /* AppDelegate.swift */; };
 		2FBCF4771EEC2805000DFE5F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FBCF4751EEC2805000DFE5F /* Main.storyboard */; };
 		2FBCF4791EEC2805000DFE5F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FBCF4781EEC2805000DFE5F /* Assets.xcassets */; };
@@ -31,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2FAD1B6D1EEC878600826A17 /* FinderResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinderResultViewController.swift; sourceTree = "<group>"; };
 		2FBCF46C1EEC2805000DFE5F /* Finder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Finder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FBCF46F1EEC2805000DFE5F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2FBCF4761EEC2805000DFE5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				2FBCF4851EEC3085000DFE5F /* FamilyViewController.swift */,
 				2FBCF48F1EEC598E000DFE5F /* LoginViewController.swift */,
 				2FBCF4871EEC30B9000DFE5F /* FinderViewController.swift */,
+				2FAD1B6D1EEC878600826A17 /* FinderResultViewController.swift */,
 				2FBCF4891EEC448F000DFE5F /* AddPersonViewController.swift */,
 				2FBCF48B1EEC44CC000DFE5F /* FindResultViewController.swift */,
 				2FBCF4921EEC702B000DFE5F /* FamilyMemberCell.swift */,
@@ -298,6 +301,7 @@
 				3C210CA31EEC3DFB00BB559B /* FirebaseWrapper.swift in Sources */,
 				3C3F0F431EEC66F800A79C9B /* UserManager.swift in Sources */,
 				3C3F0F321EEC493200A79C9B /* FinderManager.swift in Sources */,
+				2FAD1B6E1EEC878600826A17 /* FinderResultViewController.swift in Sources */,
 				3C3F0F301EEC461400A79C9B /* User.swift in Sources */,
 				3C3F0F371EEC4ACB00A79C9B /* KairosManager.swift in Sources */,
 				2FBCF4861EEC3085000DFE5F /* FamilyViewController.swift in Sources */,
