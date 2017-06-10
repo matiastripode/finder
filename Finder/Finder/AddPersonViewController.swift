@@ -92,7 +92,7 @@ class AddPersonViewController: UIViewController, UITextFieldDelegate, UIImagePic
                 })
             }
             //TODO: Add family member to user
-            self.navigationController!.dismiss(animated: true, completion: nil)
+            self.navigationController!.popViewController(animated: true)
             
         } else {
             
