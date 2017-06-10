@@ -21,7 +21,8 @@ struct KairosConfig {
 
 
 public class KairosAPI {
-    let api_url: String = "https://api.cloudinary.com/v1_1/"
+    let api_url: String = "https://api.kairos.com/"
+    let media_api_url : String = "https://api.cloudinary.com/v1_1/"
     let app_id: String
     let app_key: String
     var headers: HTTPURLResponse?
@@ -93,7 +94,7 @@ public class KairosAPI {
     
     public func request(method: String, data: Dictionary<String, Any>? = [:], httpTypeOverride: Any? = nil, callback: @escaping (AnyObject) -> ()) -> Void {
         
-        let url = (self.api_url + method).replacingOccurrences(of: "\\/{2,}", with: "/", options: .regularExpression, range: nil)
+        let url = (self.apiUrl(method) + method).replacingOccurrences(of: "\\/{2,}", with: "/", options: .regularExpression, range: nil)
         
         var httpType: String = "POST" // default
         
@@ -119,4 +120,13 @@ public class KairosAPI {
             callback(data)
         }
     }
+    
+    fileprivate func apiUrl(_ url: String) -> String {
+        if url.contains("upload")  {
+            return self.media_api_url
+        } else {
+            return self.api_url
+        }
+    }
+
 }
