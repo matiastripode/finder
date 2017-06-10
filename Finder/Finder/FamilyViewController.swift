@@ -64,7 +64,6 @@ class FamilyViewController: UITableViewController, FamilyMemberCellDelegate {
         
         var cell:FamilyMemberCell? = self.tableView.dequeueReusableCell(withIdentifier: "Cell") as? FamilyMemberCell
         
-        isEmpty = false
         if (isEmpty) {
             
             cell = tableView.dequeueReusableCell(withIdentifier: "EmptyCell") as? FamilyMemberCell
