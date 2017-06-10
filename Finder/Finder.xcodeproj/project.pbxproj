@@ -22,6 +22,9 @@
 		3C3F0F271EEC43D100A79C9B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3C3F0F261EEC43D100A79C9B /* GoogleService-Info.plist */; };
 		3C3F0F2F1EEC461400A79C9B /* FamilyMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3F0F2D1EEC461400A79C9B /* FamilyMember.swift */; };
 		3C3F0F301EEC461400A79C9B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3F0F2E1EEC461400A79C9B /* User.swift */; };
+		3C3F0F321EEC493200A79C9B /* FinderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3F0F311EEC493200A79C9B /* FinderManager.swift */; };
+		3C3F0F371EEC4ACB00A79C9B /* KairosManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3F0F361EEC4ACB00A79C9B /* KairosManager.swift */; };
+		3C3F0F401EEC4B3B00A79C9B /* kairos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3F0F3B1EEC4B3B00A79C9B /* kairos.swift */; };
 		85EB2A638E492F85E246F7F1 /* Pods_Finder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77952C9BE9BFF2584E6B613B /* Pods_Finder.framework */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +46,9 @@
 		3C3F0F261EEC43D100A79C9B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3C3F0F2D1EEC461400A79C9B /* FamilyMember.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FamilyMember.swift; sourceTree = "<group>"; };
 		3C3F0F2E1EEC461400A79C9B /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		3C3F0F311EEC493200A79C9B /* FinderManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinderManager.swift; sourceTree = "<group>"; };
+		3C3F0F361EEC4ACB00A79C9B /* KairosManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KairosManager.swift; sourceTree = "<group>"; };
+		3C3F0F3B1EEC4B3B00A79C9B /* kairos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = kairos.swift; sourceTree = "<group>"; };
 		6A044272485CA8E5FDFCF8A4 /* Pods-Finder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Finder.release.xcconfig"; path = "Pods/Target Support Files/Pods-Finder/Pods-Finder.release.xcconfig"; sourceTree = "<group>"; };
 		77952C9BE9BFF2584E6B613B /* Pods_Finder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Finder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		903AA90495D4A0690AFC4FB5 /* Pods-Finder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Finder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Finder/Pods-Finder.debug.xcconfig"; sourceTree = "<group>"; };
@@ -102,8 +108,10 @@
 		3C210C9F1EEC3DFB00BB559B /* Backend */ = {
 			isa = PBXGroup;
 			children = (
+				3C3F0F351EEC4ACB00A79C9B /* Kairos */,
 				3C210CA01EEC3DFB00BB559B /* DatabaseService.swift */,
 				3C210CA11EEC3DFB00BB559B /* FirebaseWrapper.swift */,
+				3C3F0F311EEC493200A79C9B /* FinderManager.swift */,
 			);
 			path = Backend;
 			sourceTree = "<group>";
@@ -115,6 +123,15 @@
 				3C3F0F2E1EEC461400A79C9B /* User.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		3C3F0F351EEC4ACB00A79C9B /* Kairos */ = {
+			isa = PBXGroup;
+			children = (
+				3C3F0F3B1EEC4B3B00A79C9B /* kairos.swift */,
+				3C3F0F361EEC4ACB00A79C9B /* KairosManager.swift */,
+			);
+			path = Kairos;
 			sourceTree = "<group>";
 		};
 		55F88A3A4A2D389CBF7C8322 /* Pods */ = {
@@ -258,11 +275,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C3F0F401EEC4B3B00A79C9B /* kairos.swift in Sources */,
 				2FBCF4881EEC30B9000DFE5F /* FinderViewController.swift in Sources */,
 				3C3F0F2F1EEC461400A79C9B /* FamilyMember.swift in Sources */,
 				3C210CA21EEC3DFB00BB559B /* DatabaseService.swift in Sources */,
 				3C210CA31EEC3DFB00BB559B /* FirebaseWrapper.swift in Sources */,
+				3C3F0F321EEC493200A79C9B /* FinderManager.swift in Sources */,
 				3C3F0F301EEC461400A79C9B /* User.swift in Sources */,
+				3C3F0F371EEC4ACB00A79C9B /* KairosManager.swift in Sources */,
 				2FBCF4861EEC3085000DFE5F /* FamilyViewController.swift in Sources */,
 				2FBCF48C1EEC44CC000DFE5F /* FindResultViewController.swift in Sources */,
 				2FBCF48E1EEC474C000DFE5F /* PersonFoundViewController.swift in Sources */,
