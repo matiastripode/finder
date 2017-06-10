@@ -66,24 +66,28 @@ class FinderManager {
             
             DataService.shared.retrieveData(by: "people/\(data.subject_id)", success: { (result) in
                 //3. find the owner
-                if let result = result  {
-                    let owner = result["reporterid"] as? String
-                    
-                    DataService.shared.retrieveData(by: "reporters/\(String(describing: owner))",
-                                                    success: { (result) in
-                                                        guard let result = result else{
+                guard let result = result,
+                    let owner = result["reporterid"] as? String else {
+                        return failure(NSError())
+                }
+                
+                DataService.shared.retrieveData(by: "reporters/\(String(describing: owner))",
+                                                success: { (result) in
+                                                    guard let result = result else{
                                                             return failure(NSError())
                                                         }
 
-                            //4. Send push notificaitons
-                                                        
-                    }, failure: failure)
-                }
-                
-                
-                
+                        let name = result["name"] as? String ?? ""
+                        let phone = result["phone"] as? String ?? ""
+                                                    
+                        //4. Send push notificaitons
+                        NotificationManager.shared.notify(owner,
+                                                          phone: phone,
+                                                          name: name,
+                                                          success: succes,
+                                                          failure: failure)
+                }, failure: failure)
             }, failure: failure)
-            
         }, failure: failure)
         
         

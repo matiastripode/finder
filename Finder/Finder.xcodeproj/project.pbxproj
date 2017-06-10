@@ -19,6 +19,7 @@
 		2FBCF48C1EEC44CC000DFE5F /* FindResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBCF48B1EEC44CC000DFE5F /* FindResultViewController.swift */; };
 		2FBCF4901EEC598E000DFE5F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBCF48F1EEC598E000DFE5F /* LoginViewController.swift */; };
 		2FBCF4931EEC702B000DFE5F /* FamilyMemberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBCF4921EEC702B000DFE5F /* FamilyMemberCell.swift */; };
+		3C1C06F31EECAAEA00E076DC /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1C06F21EECAAEA00E076DC /* NotificationManager.swift */; };
 		3C210CA21EEC3DFB00BB559B /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C210CA01EEC3DFB00BB559B /* DatabaseService.swift */; };
 		3C210CA31EEC3DFB00BB559B /* FirebaseWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C210CA11EEC3DFB00BB559B /* FirebaseWrapper.swift */; };
 		3C3F0F271EEC43D100A79C9B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3C3F0F261EEC43D100A79C9B /* GoogleService-Info.plist */; };
@@ -47,6 +48,7 @@
 		2FBCF48B1EEC44CC000DFE5F /* FindResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindResultViewController.swift; sourceTree = "<group>"; };
 		2FBCF48F1EEC598E000DFE5F /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		2FBCF4921EEC702B000DFE5F /* FamilyMemberCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FamilyMemberCell.swift; sourceTree = "<group>"; };
+		3C1C06F21EECAAEA00E076DC /* NotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		3C210CA01EEC3DFB00BB559B /* DatabaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
 		3C210CA11EEC3DFB00BB559B /* FirebaseWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseWrapper.swift; sourceTree = "<group>"; };
 		3C3F0F261EEC43D100A79C9B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 				3C210CA11EEC3DFB00BB559B /* FirebaseWrapper.swift */,
 				3C3F0F311EEC493200A79C9B /* FinderManager.swift */,
 				3C3F0F421EEC66F800A79C9B /* UserManager.swift */,
+				3C1C06F21EECAAEA00E076DC /* NotificationManager.swift */,
 			);
 			path = Backend;
 			sourceTree = "<group>";
@@ -318,6 +321,7 @@
 				2FBCF4861EEC3085000DFE5F /* FamilyViewController.swift in Sources */,
 				2FBCF4931EEC702B000DFE5F /* FamilyMemberCell.swift in Sources */,
 				2FBCF48C1EEC44CC000DFE5F /* FindResultViewController.swift in Sources */,
+				3C1C06F31EECAAEA00E076DC /* NotificationManager.swift in Sources */,
 				2FBCF4701EEC2805000DFE5F /* AppDelegate.swift in Sources */,
 				2FBCF4841EEC3049000DFE5F /* ProfileViewController.swift in Sources */,
 				2FBCF48A1EEC448F000DFE5F /* AddPersonViewController.swift in Sources */,

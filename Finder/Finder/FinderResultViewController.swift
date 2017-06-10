@@ -18,36 +18,45 @@ class FinderResultViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
-        if let image = image {
-            self.imageView.image = image
+        guard let image = image else {
+            return
         }
         
-        // VERIFY IMAGE IN KAIROS   
-        if (true) {
-            let alertController = UIAlertController(title: "Result", message: "The person is missing, the family will contact you soon. Call police as soon as possible", preferredStyle: .alert)
-            
-            let cameraAction = UIAlertAction(title: "Ok", style: .cancel) { action in
-            }
-            alertController.addAction(cameraAction)
-            
-            self.present(alertController, animated: true) {
+        self.imageView.image = image
+        
+        
+        FinderManager.shared.report(image,
+                                    succes: {
+                                        DispatchQueue.main.async {
+                                            let alertController = UIAlertController(title: "Result", message: "The person is missing, the family will contact you soon. Call police as soon as possible", preferredStyle: .alert)
+                                            
+                                            let cameraAction = UIAlertAction(title: "Ok", style: .cancel) { action in
+                                            }
+                                            alertController.addAction(cameraAction)
+                                            
+                                            self.present(alertController, animated: true) {
+                                            }
+                                            
+                                            self.resultImageView.backgroundColor = .green
+                                        }
+                                        
+        }, failure: { (error) in
+            print(error)
+            DispatchQueue.main.async {
+                let alertController = UIAlertController(title: "Result", message: "The person is not missing. Thank you for validating anyway", preferredStyle: .alert)
+                
+                let cameraAction = UIAlertAction(title: "Ok", style: .cancel) { action in
+                }
+                alertController.addAction(cameraAction)
+                
+                self.present(alertController, animated: true) {
+                }
+                self.resultImageView.backgroundColor = .red
             }
 
-            self.resultImageView.backgroundColor = .green
-            
-        } else {
-            let alertController = UIAlertController(title: "Result", message: "The person is not missing. Thank you for validating anyway", preferredStyle: .alert)
-            
-            let cameraAction = UIAlertAction(title: "Ok", style: .cancel) { action in
-            }
-            alertController.addAction(cameraAction)
-            
-            self.present(alertController, animated: true) {
-            }
-
-        }
-    }
+        })
+        
+           }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -78,22 +78,27 @@ class KairosManager {
                 success: @escaping RecognizeSuccessClosure,
                 failure: @escaping FailureClosure){
         
+        let  imageStr = KairosAPI.shared.convertImageToBase64String(image: image)
         let body  = [
             "gallery_name":"MissingPersonFinder2017Test",
-            "image":"https://res.cloudinary.com/globanthackmiami/image/upload/v1497117727/Search1_tvn0tc.jpg"
+            "image":imageStr
         ]
+        
         
         // Example - /v2/media
         KairosAPI.shared.request(method: "recognize",
                                  data: body) { (result) in
                                     print(result)
-                                    let subject_id = result["subject_id"] as? String
-                                    if let subject_id = subject_id {
-                                        let recognize = RecognizeResult(subject_id: subject_id)
-                                        success(recognize)
-                                    } else {
-                                        failure(NSError())
+                                    guard let images = result["images"] as? [Any],
+                                        let image = images[0]  as? [String:Any],
+                                        let transaction = image["transaction"] as? [String:Any],
+                                        //let candidate = candidates[0] as? [String:Any],
+                                        let subject_id = transaction["subject_id"] as? String else {
+                                            return failure(NSError())
                                     }
+                                    
+                                    let recognize = RecognizeResult(subject_id: subject_id)
+                                    success(recognize)
         }
         
         

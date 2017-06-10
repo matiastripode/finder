@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,6 +19,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         configureFirebase()
 
+       
+        application.registerUserNotificationSettings(UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil))
+        
+        
+        
+        NotificationManager.shared.listen("idgeneradofirebase", success: { (result) in
+            
+            //let timeInterval = Date().timeIntervalSinceNow
+            // if timeInterval > result.timeInterval {
+                // create a corresponding local notification
+                let notification = UILocalNotification()
+                notification.alertBody = "Good news: \(result.name) found your kid. You can reach him at \(result.phone)"
+                notification.alertAction = "open"
+                notification.fireDate = Date()
+                UIApplication.shared.scheduleLocalNotification(notification)
+            //}
+            
+        }) { (error) in
+            print("error")
+        }
         
         UserManager.shared.currentUser = User(family: nil,
                                               name: "Matias Tripode",
