@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import Alamofire
 
-class FamilyViewController: UITableViewController {
+class FamilyViewController: UITableViewController, FamilyMemberCellDelegate {
     
     var array: [FamilyMember] = []
 
@@ -24,7 +25,8 @@ class FamilyViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.tableView.reloadData()
+       
+        UserManager.shared.getFamily()
         
         if let family = UserManager.shared.currentUser?.family{
             self.array = family
@@ -32,6 +34,8 @@ class FamilyViewController: UITableViewController {
         } else {
             isEmpty = true
         }
+        
+        self.tableView.reloadData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -58,30 +62,47 @@ class FamilyViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        var cell: UITableViewCell? = nil
+        var cell:FamilyMemberCell? = self.tableView.dequeueReusableCell(withIdentifier: "Cell") as? FamilyMemberCell
         
         if (isEmpty) {
             
-            cell = tableView.dequeueReusableCell(withIdentifier: "EmptyCell")
+            cell = tableView.dequeueReusableCell(withIdentifier: "EmptyCell") as? FamilyMemberCell
             if (cell == nil) {
-                cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "EmptyCell")
+                cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "EmptyCell") as? FamilyMemberCell
             }
 
         } else {
             
-            let member = self.array[indexPath.row]
-            cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
+           let member = self.array[indexPath.row]
+            cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as? FamilyMemberCell
             if (cell == nil) {
-                cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "Cell")
+                cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "Cell") as? FamilyMemberCell
             }
             
+            cell?.delegate = self
             //placeholder
-            cell?.imageView?.image = UIImage(named: "placeholder")
-            cell?.textLabel?.text = member.name
+            cell?.memberImageView.image = UIImage(named: "placeholder")
+            cell?.nameLabel.text = member.name
             
-            if (member.image != nil) {
-                cell?.imageView?.image = member.image
+            // Let's keep track of the index in our data source
+            cell?.cellIndex = indexPath.row
+            
+//            cell?.imageView?.af_setImage(
+//                withURL: imageUrl,
+//                placeholderImage: UIImage(named: ImageConstants.Common.PlaceHolderSmall),
+//                filter: nil
+//            )
+
+            
+            if let url = NSURL(string:member.image_url) {
+                DispatchQueue.global().async {
+                    let data = try? Data(contentsOf: url as URL) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
+                    DispatchQueue.main.async {
+                        cell?.memberImageView?.image = UIImage(data: data!)
+                    }
+                }
             }
+            
         }
         return cell!
     }
@@ -102,6 +123,12 @@ class FamilyViewController: UITableViewController {
             }
         }
     }
+    
+    func changeReportStatus(cellIndex: Int) {
+        print("Cell index: \(cellIndex)")
+    }
+
+    
     /*
     // MARK: - Navigation
 

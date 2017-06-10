@@ -8,8 +8,6 @@
 
 import Foundation
 
-
-
 struct User {
     var family: [FamilyMember]?
     var name: String
