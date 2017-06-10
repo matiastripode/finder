@@ -88,13 +88,14 @@ class AddPersonViewController: UIViewController, UITextFieldDelegate, UIImagePic
         if let text = self.textField.text, let image = self.imageView.image, text != "" {
             let familyMember = FamilyMember (image: image, image_url: "", name:text)
             
-//            FinderManager.shared.add(familyMember, to: nil, succes: {
-//                self.dismiss(animated: true, completion: nil)
-//            }, failure: {_ in
-//                print ("There was an error adding the family member")
-//                self.dismiss(animated: true, completion: nil)
-//            })
-            
+            if let user = UserManager.shared.currentUser {
+                FinderManager.shared.add(familyMember, to: user, succes: {
+                    self.dismiss(animated: true, completion: nil)
+                }, failure: {_ in
+                    print ("There was an error adding the family member")
+                    self.dismiss(animated: true, completion: nil)
+                })
+            }
             //TODO: Add family member to user
             self.dismiss(animated: true, completion: nil)
             
