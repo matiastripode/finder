@@ -10,7 +10,8 @@ import Foundation
 import UIKit
 
 struct FamilyMember {
-    var image: UIImage
+    var image: UIImage?
+    var image_url: String
     var name: String
 }
 
