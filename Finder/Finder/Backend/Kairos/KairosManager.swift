@@ -8,6 +8,7 @@
 
 import Foundation
 
+
 typealias Base64ImageData = String
 
 struct KairosImageData {
@@ -16,7 +17,11 @@ struct KairosImageData {
 
 
 class KairosManager {
-    func detect( _ data: KairosImageData) {
+    static let shared = KairosManager()
+    
+    func detect( _ data: KairosImageData,
+                 success: @escaping BasicClosure,
+                 failure: @escaping FailureClosure) {
         
         
         let base64ImageData = KairosAPI.shared.convertImageToBase64String(file: "elizabeth.jpg")
@@ -44,20 +49,27 @@ class KairosManager {
                 print("Gender: \(gender_type)")
                 print("Age: \(age)")
                 print("Confidence: \(confidence_percent)% \n")
+                
+                success()
             }
             else {
                 print("Error - Enroll: unable to get image data")
+                let error = NSError()
+                failure(error)
             }
         }
 
     }
     
-    func enroll() {
-        // setup json request params, with image url
+    func enroll(_ user: User,
+                member: FamilyMember,
+                success: @escaping BasicClosure,
+                failure: @escaping FailureClosure){
+        
         let jsonBody = [
-            "image": "https://media.kairos.com/test1.jpg",
-            "gallery_name": "kairos-test",
-            "subject_id": "test1"
+            "image": member.image_url,  //"https://media.kairos.com/test1.jpg",
+            "gallery_name": user.galleryName,
+            "subject_id": member.name//"test1"
         ]
         
         KairosAPI.shared.request(method: "enroll", data: jsonBody) { data in
@@ -78,9 +90,14 @@ class KairosManager {
                 print("Gender: \(gender_type)")
                 print("Age: \(age)")
                 print("Confidence: \(confidence_percent)% \n")
+                
+                success()
             }
             else {
+                let error = NSError()
+                
                 print("Error - Enroll: unable to get image data")
+                failure(error)
             }
         }
 

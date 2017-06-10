@@ -15,7 +15,7 @@ public typealias RawDataType = [String: AnyObject]
 
 public typealias BasicClosure = () -> Void
 public typealias SuccessClosure = (AnyObject?) -> Void
-public typealias FailureClosure = (NSError) -> Void
+public typealias FailureClosure = (Error) -> Void
 
 public protocol DataServiceType
 {
@@ -41,6 +41,7 @@ public protocol DataServiceType
 public struct DataService : DataServiceType
 {
     private let db: FirebaseWrapperType
+    public static let shared = DataService()
     
     public init()
     {

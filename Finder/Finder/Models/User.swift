@@ -11,7 +11,8 @@ import Foundation
 
 
 struct User {
-    var family: [FamilyMember]
+    var family: [FamilyMember]?
     var name: String
     var phone: String
+    var galleryName: String
 }
