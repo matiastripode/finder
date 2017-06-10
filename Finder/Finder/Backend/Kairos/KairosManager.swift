@@ -28,7 +28,7 @@ class KairosManager {
                  failure: @escaping FailureClosure) {
         
         
-        let base64ImageData = KairosAPI.shared.convertImageToBase64String(file: "elizabeth.jpg")
+        let base64ImageData = KairosAPI.shared.convertImageFileToBase64String(file: "elizabeth.jpg")
         
         // setup json request params, with base64 data
         let jsonBodyDetect = [
@@ -37,7 +37,9 @@ class KairosManager {
         
         KairosAPI.shared.request(method: "enroll", data: jsonBodyDetect) { data in
             // check image key exist and get data
-            if let image = ((data as? [String : AnyObject])!["images"])![0] {
+            if let imageData = data as? [String : AnyObject],
+                let imageArray = imageData["images"] as? [AnyObject?],
+                let image = imageArray[0] {
                 // get root image and primary key objects
                 let attributes = (image as? [String : AnyObject])!["attributes"]
                 let transaction = (image as? [String : AnyObject])!["transaction"]
@@ -73,19 +75,18 @@ class KairosManager {
             return failure(NSError())
         }
         
-        let imageData: NSData = UIImageJPEGRepresentation(image, 0.4)! as NSData
-        let imageStr = imageData.base64EncodedData(options: .endLineWithCarriageReturn)
+       let imageStr = KairosAPI.shared.convertImageToBase64String(image: image)
         
         
         let body = [
-            "file": ["data": imageStr],
+            "file": imageStr,
             "folder": "user1",
             "upload_preset": "personfinder"
             
         ] as [String : Any]
     
         // Example - /v2/media
-        KairosAPI.shared.request(method: "globanthackmiami/image/upload",
+        KairosAPI.shared.request(method: "v1_1/globanthackmiami/image/upload",
                                  data: body) { (result) in
                                     
             let url = result["url"] as! String
@@ -111,7 +112,9 @@ class KairosManager {
         
         KairosAPI.shared.request(method: "enroll", data: jsonBody) { data in
             // check image key exist and get data
-            if let image = ((data as? [String : AnyObject])!["images"])![0] {
+            if let imageData = data as? [String : AnyObject],
+                let imageArray = imageData["images"] as? [AnyObject?],
+                let image = imageArray[0] {
                 // get root image and primary key objects
                 let attributes = (image as? [String : AnyObject])!["attributes"]
                 let transaction = (image as? [String : AnyObject])!["transaction"]

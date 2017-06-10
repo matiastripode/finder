@@ -65,22 +65,13 @@ class AddPersonViewController: UIViewController, UITextFieldDelegate, UIImagePic
         self.textField.resignFirstResponder()
     }
     
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            imageView.contentMode = .scaleAspectFit
-            imageView.image = pickedImage
-            imageUploaded = true
-        }
-        
-        dismiss(animated: true, completion: nil)
-    }
-    
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [String : Any]) {
         
         if let pickedImage = info[UIImagePickerControllerEditedImage] as? UIImage {
             imageView.contentMode = .scaleAspectFit
             imageView.image = pickedImage
+            imageUploaded = true
         }
         
         dismiss(animated: true, completion: nil)
