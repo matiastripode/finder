@@ -27,6 +27,7 @@
 		3C3F0F371EEC4ACB00A79C9B /* KairosManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3F0F361EEC4ACB00A79C9B /* KairosManager.swift */; };
 		3C3F0F401EEC4B3B00A79C9B /* kairos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3F0F3B1EEC4B3B00A79C9B /* kairos.swift */; };
 		3C3F0F431EEC66F800A79C9B /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3F0F421EEC66F800A79C9B /* UserManager.swift */; };
+		652CE0AE1EEC76210089347B /* CloudinaryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652CE0AD1EEC76210089347B /* CloudinaryManager.swift */; };
 		85EB2A638E492F85E246F7F1 /* Pods_Finder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77952C9BE9BFF2584E6B613B /* Pods_Finder.framework */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +54,7 @@
 		3C3F0F361EEC4ACB00A79C9B /* KairosManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KairosManager.swift; sourceTree = "<group>"; };
 		3C3F0F3B1EEC4B3B00A79C9B /* kairos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = kairos.swift; sourceTree = "<group>"; };
 		3C3F0F421EEC66F800A79C9B /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		652CE0AD1EEC76210089347B /* CloudinaryManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudinaryManager.swift; sourceTree = "<group>"; };
 		6A044272485CA8E5FDFCF8A4 /* Pods-Finder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Finder.release.xcconfig"; path = "Pods/Target Support Files/Pods-Finder/Pods-Finder.release.xcconfig"; sourceTree = "<group>"; };
 		77952C9BE9BFF2584E6B613B /* Pods_Finder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Finder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		903AA90495D4A0690AFC4FB5 /* Pods-Finder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Finder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Finder/Pods-Finder.debug.xcconfig"; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 		3C210C9F1EEC3DFB00BB559B /* Backend */ = {
 			isa = PBXGroup;
 			children = (
+				652CE0AC1EEC760D0089347B /* Cloudinary */,
 				3C3F0F351EEC4ACB00A79C9B /* Kairos */,
 				3C210CA01EEC3DFB00BB559B /* DatabaseService.swift */,
 				3C210CA11EEC3DFB00BB559B /* FirebaseWrapper.swift */,
@@ -155,6 +158,14 @@
 				6A044272485CA8E5FDFCF8A4 /* Pods-Finder.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		652CE0AC1EEC760D0089347B /* Cloudinary */ = {
+			isa = PBXGroup;
+			children = (
+				652CE0AD1EEC76210089347B /* CloudinaryManager.swift */,
+			);
+			name = Cloudinary;
 			sourceTree = "<group>";
 		};
 		DC1C13E92A82A7DE48C3E634 /* Frameworks */ = {
@@ -297,6 +308,7 @@
 				3C210CA21EEC3DFB00BB559B /* DatabaseService.swift in Sources */,
 				3C210CA31EEC3DFB00BB559B /* FirebaseWrapper.swift in Sources */,
 				3C3F0F431EEC66F800A79C9B /* UserManager.swift in Sources */,
+				652CE0AE1EEC76210089347B /* CloudinaryManager.swift in Sources */,
 				3C3F0F321EEC493200A79C9B /* FinderManager.swift in Sources */,
 				3C3F0F301EEC461400A79C9B /* User.swift in Sources */,
 				3C3F0F371EEC4ACB00A79C9B /* KairosManager.swift in Sources */,

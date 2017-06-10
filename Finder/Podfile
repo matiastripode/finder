@@ -11,5 +11,5 @@ target 'Finder' do
   pod ‘Firebase/Core’
   pod ‘Firebase/Auth’
   pod ‘Firebase/Messaging’
-
+  pod 'Cloudinary'
 end
