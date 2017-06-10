@@ -51,6 +51,7 @@ class FamilyViewController: UITableViewController, FamilyMemberCellDelegate {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         if (isEmpty) {
             return 1
         }
@@ -85,7 +86,6 @@ class FamilyViewController: UITableViewController, FamilyMemberCellDelegate {
             
             // Let's keep track of the index in our data source
             cell?.cellIndex = indexPath.row
-            
             
 //            cell?.imageView?.af_setImage(
 //                withURL: imageUrl,
