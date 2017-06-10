@@ -48,7 +48,6 @@ class FamilyViewController: UITableViewController, FamilyMemberCellDelegate {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
         if (isEmpty) {
             return 1
         }
@@ -70,7 +69,7 @@ class FamilyViewController: UITableViewController, FamilyMemberCellDelegate {
 
         } else {
             
-      //     let member = self.array[indexPath.row]
+           let member = self.array[indexPath.row]
             cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as? FamilyMemberCell
             if (cell == nil) {
                 cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "Cell") as? FamilyMemberCell
@@ -84,9 +83,9 @@ class FamilyViewController: UITableViewController, FamilyMemberCellDelegate {
             // Let's keep track of the index in our data source
             cell?.cellIndex = indexPath.row
             
-//            if (member.image != nil) {
-//                cell?.imageView?.image = member.image
-//            }
+            if (member.image != nil) {
+                cell?.imageView?.image = member.image
+            }
             
         }
         return cell!
