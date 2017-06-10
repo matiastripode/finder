@@ -7,8 +7,13 @@
 //
 
 import UIKit
+import MapKit
 
 class PersonFoundViewController: UIViewController {
+
+    @IBOutlet weak var mapView : MKMapView!
+    @IBOutlet weak var textField : UITextField!
+    @IBOutlet weak var imageView : UIImageView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
