@@ -14,6 +14,9 @@
 		2FBCF4841EEC3049000DFE5F /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBCF4831EEC3049000DFE5F /* ProfileViewController.swift */; };
 		2FBCF4861EEC3085000DFE5F /* FamilyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBCF4851EEC3085000DFE5F /* FamilyViewController.swift */; };
 		2FBCF4881EEC30B9000DFE5F /* FinderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBCF4871EEC30B9000DFE5F /* FinderViewController.swift */; };
+		2FBCF48A1EEC448F000DFE5F /* AddPersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBCF4891EEC448F000DFE5F /* AddPersonViewController.swift */; };
+		2FBCF48C1EEC44CC000DFE5F /* FindResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBCF48B1EEC44CC000DFE5F /* FindResultViewController.swift */; };
+		2FBCF48E1EEC474C000DFE5F /* PersonFoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBCF48D1EEC474C000DFE5F /* PersonFoundViewController.swift */; };
 		85EB2A638E492F85E246F7F1 /* Pods_Finder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77952C9BE9BFF2584E6B613B /* Pods_Finder.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +30,9 @@
 		2FBCF4831EEC3049000DFE5F /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		2FBCF4851EEC3085000DFE5F /* FamilyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FamilyViewController.swift; sourceTree = "<group>"; };
 		2FBCF4871EEC30B9000DFE5F /* FinderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinderViewController.swift; sourceTree = "<group>"; };
+		2FBCF4891EEC448F000DFE5F /* AddPersonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPersonViewController.swift; sourceTree = "<group>"; };
+		2FBCF48B1EEC44CC000DFE5F /* FindResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindResultViewController.swift; sourceTree = "<group>"; };
+		2FBCF48D1EEC474C000DFE5F /* PersonFoundViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonFoundViewController.swift; sourceTree = "<group>"; };
 		6A044272485CA8E5FDFCF8A4 /* Pods-Finder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Finder.release.xcconfig"; path = "Pods/Target Support Files/Pods-Finder/Pods-Finder.release.xcconfig"; sourceTree = "<group>"; };
 		77952C9BE9BFF2584E6B613B /* Pods_Finder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Finder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		903AA90495D4A0690AFC4FB5 /* Pods-Finder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Finder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Finder/Pods-Finder.debug.xcconfig"; sourceTree = "<group>"; };
@@ -70,6 +76,9 @@
 				2FBCF4851EEC3085000DFE5F /* FamilyViewController.swift */,
 				2FBCF4871EEC30B9000DFE5F /* FinderViewController.swift */,
 				2FBCF4751EEC2805000DFE5F /* Main.storyboard */,
+				2FBCF4891EEC448F000DFE5F /* AddPersonViewController.swift */,
+				2FBCF48B1EEC44CC000DFE5F /* FindResultViewController.swift */,
+				2FBCF48D1EEC474C000DFE5F /* PersonFoundViewController.swift */,
 				2FBCF4781EEC2805000DFE5F /* Assets.xcassets */,
 				2FBCF47A1EEC2805000DFE5F /* LaunchScreen.storyboard */,
 				2FBCF47D1EEC2805000DFE5F /* Info.plist */,
@@ -219,8 +228,11 @@
 			files = (
 				2FBCF4881EEC30B9000DFE5F /* FinderViewController.swift in Sources */,
 				2FBCF4861EEC3085000DFE5F /* FamilyViewController.swift in Sources */,
+				2FBCF48C1EEC44CC000DFE5F /* FindResultViewController.swift in Sources */,
+				2FBCF48E1EEC474C000DFE5F /* PersonFoundViewController.swift in Sources */,
 				2FBCF4701EEC2805000DFE5F /* AppDelegate.swift in Sources */,
 				2FBCF4841EEC3049000DFE5F /* ProfileViewController.swift in Sources */,
+				2FBCF48A1EEC448F000DFE5F /* AddPersonViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,6 +398,7 @@
 				2FBCF4821EEC2805000DFE5F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
