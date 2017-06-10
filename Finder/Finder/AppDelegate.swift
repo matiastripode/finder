@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,28 +18,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         configureFirebase()
-
-
-        /* TO-DO: NEXT LINES ARE FOR TESTING ONLY
-        let member = FamilyMember(image: nil,
-                                  image_url: "https://media.kairos.com/test1.jpg",
-                                  name: "Jennifer")
+       
+        application.registerUserNotificationSettings(UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil))
         
-        var user = User(family: [member],
-                        name: "Matias Tripode",
-                        phone: "206-345-5687",
-                        galleryName: "Matias-Family")
         
-        FinderManager.shared.add(member,
-                                 to: user,
-                                 succes: { 
-                                    print("succes")
+        
+        NotificationManager.shared.listen("idgeneradofirebase", success: { (result) in
+            
+            //let timeInterval = Date().timeIntervalSinceNow
+            // if timeInterval > result.timeInterval {
+                // create a corresponding local notification
+                let notification = UILocalNotification()
+                notification.alertBody = "Good news: \(result.name) found your kid. You can reach him at \(result.phone)"
+                notification.alertAction = "open"
+                notification.fireDate = Date()
+                UIApplication.shared.scheduleLocalNotification(notification)
+            //}
+            
         }) { (error) in
-            print("Error \(error)")
-            user.family?.append(member)
+            print("error")
         }
         
-        */
+        UserManager.shared.currentUser = User(family: nil,
+                                              name: "Matias Tripode",
+                                              phone: "206-345-2354",
+                                              galleryName: "20170610Globant")
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
