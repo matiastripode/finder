@@ -15,6 +15,8 @@ class AddPersonViewController: UIViewController, UITextFieldDelegate, UIImagePic
 
     let imagePicker = UIImagePickerController()
 
+    var imageUploaded: Bool = false
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -67,6 +69,7 @@ class AddPersonViewController: UIViewController, UITextFieldDelegate, UIImagePic
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
             imageView.contentMode = .scaleAspectFit
             imageView.image = pickedImage
+            imageUploaded = true
         }
         
         dismiss(animated: true, completion: nil)
@@ -85,8 +88,8 @@ class AddPersonViewController: UIViewController, UITextFieldDelegate, UIImagePic
     }
     
     @IBAction func onAddPerson () {
-        if let text = self.textField.text, let image = self.imageView.image, text != "" {
-            let familyMember = FamilyMember (image: image, image_url: "", name:text)
+        if let text = self.textField.text, imageUploaded, text != "" {
+            let familyMember = FamilyMember (image: self.imageView.image, image_url: "", name:text)
             
 //            FinderManager.shared.add(familyMember, to: nil, succes: {
 //                self.dismiss(animated: true, completion: nil)
@@ -96,7 +99,7 @@ class AddPersonViewController: UIViewController, UITextFieldDelegate, UIImagePic
 //            })
             
             //TODO: Add family member to user
-            self.dismiss(animated: true, completion: nil)
+            self.navigationController!.dismiss(animated: true, completion: nil)
             
         } else {
             
