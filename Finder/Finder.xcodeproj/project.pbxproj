@@ -17,6 +17,7 @@
 		2FBCF48A1EEC448F000DFE5F /* AddPersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBCF4891EEC448F000DFE5F /* AddPersonViewController.swift */; };
 		2FBCF48C1EEC44CC000DFE5F /* FindResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBCF48B1EEC44CC000DFE5F /* FindResultViewController.swift */; };
 		2FBCF48E1EEC474C000DFE5F /* PersonFoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBCF48D1EEC474C000DFE5F /* PersonFoundViewController.swift */; };
+		2FBCF4901EEC598E000DFE5F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBCF48F1EEC598E000DFE5F /* LoginViewController.swift */; };
 		3C210CA21EEC3DFB00BB559B /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C210CA01EEC3DFB00BB559B /* DatabaseService.swift */; };
 		3C210CA31EEC3DFB00BB559B /* FirebaseWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C210CA11EEC3DFB00BB559B /* FirebaseWrapper.swift */; };
 		3C3F0F271EEC43D100A79C9B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3C3F0F261EEC43D100A79C9B /* GoogleService-Info.plist */; };
@@ -41,6 +42,7 @@
 		2FBCF4891EEC448F000DFE5F /* AddPersonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPersonViewController.swift; sourceTree = "<group>"; };
 		2FBCF48B1EEC44CC000DFE5F /* FindResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindResultViewController.swift; sourceTree = "<group>"; };
 		2FBCF48D1EEC474C000DFE5F /* PersonFoundViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonFoundViewController.swift; sourceTree = "<group>"; };
+		2FBCF48F1EEC598E000DFE5F /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3C210CA01EEC3DFB00BB559B /* DatabaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
 		3C210CA11EEC3DFB00BB559B /* FirebaseWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseWrapper.swift; sourceTree = "<group>"; };
 		3C3F0F261EEC43D100A79C9B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -87,12 +89,14 @@
 		2FBCF46E1EEC2805000DFE5F /* Finder */ = {
 			isa = PBXGroup;
 			children = (
+				2FBCF4911EEC59FB000DFE5F /* ViewControllers */,
 				3C3F0F2C1EEC461400A79C9B /* Models */,
 				3C3F0F261EEC43D100A79C9B /* GoogleService-Info.plist */,
 				3C210C9F1EEC3DFB00BB559B /* Backend */,
 				2FBCF46F1EEC2805000DFE5F /* AppDelegate.swift */,
 				2FBCF4831EEC3049000DFE5F /* ProfileViewController.swift */,
 				2FBCF4851EEC3085000DFE5F /* FamilyViewController.swift */,
+				2FBCF48F1EEC598E000DFE5F /* LoginViewController.swift */,
 				2FBCF4871EEC30B9000DFE5F /* FinderViewController.swift */,
 				2FBCF4751EEC2805000DFE5F /* Main.storyboard */,
 				2FBCF4891EEC448F000DFE5F /* AddPersonViewController.swift */,
@@ -103,6 +107,13 @@
 				2FBCF47D1EEC2805000DFE5F /* Info.plist */,
 			);
 			path = Finder;
+			sourceTree = "<group>";
+		};
+		2FBCF4911EEC59FB000DFE5F /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 		3C210C9F1EEC3DFB00BB559B /* Backend */ = {
@@ -186,6 +197,7 @@
 				TargetAttributes = {
 					2FBCF46B1EEC2805000DFE5F = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 332N44E879;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -275,6 +287,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FBCF4901EEC598E000DFE5F /* LoginViewController.swift in Sources */,
 				3C3F0F401EEC4B3B00A79C9B /* kairos.swift in Sources */,
 				2FBCF4881EEC30B9000DFE5F /* FinderViewController.swift in Sources */,
 				3C3F0F2F1EEC461400A79C9B /* FamilyMember.swift in Sources */,
@@ -414,6 +427,7 @@
 			baseConfigurationReference = 903AA90495D4A0690AFC4FB5 /* Pods-Finder.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 332N44E879;
 				INFOPLIST_FILE = Finder/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -428,6 +442,7 @@
 			baseConfigurationReference = 6A044272485CA8E5FDFCF8A4 /* Pods-Finder.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 332N44E879;
 				INFOPLIST_FILE = Finder/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
