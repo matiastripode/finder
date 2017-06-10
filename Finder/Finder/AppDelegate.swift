@@ -17,17 +17,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         configureFirebase()
+
         
         UserManager.shared.currentUser = User(family: nil,
                                               name: "Matias Tripode",
                                               phone: "206-345-2354",
                                               galleryName: "20170610Globant")
+        
+
         /* TO-DO: NEXT LINES ARE FOR TESTING ONLY
         let member = FamilyMember(image: nil,
                                   image_url: "https://media.kairos.com/test1.jpg",
                                   name: "Jennifer")
         
-        let user = User(family: nil,
+        var user = User(family: [member],
                         name: "Matias Tripode",
                         phone: "206-345-5687",
                         galleryName: "Matias-Family")
@@ -38,8 +41,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                     print("succes")
         }) { (error) in
             print("Error \(error)")
+            user.family?.append(member)
         }
-         */
+        
+        */
+        
         return true
     }
     func configureFirebase() {
