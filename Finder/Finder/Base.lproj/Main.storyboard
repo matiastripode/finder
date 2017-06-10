@@ -27,7 +27,7 @@
             </objects>
             <point key="canvasLocation" x="297" y="-338"/>
         </scene>
-        <!--Family View Controller-->
+        <!--Title-->
         <scene sceneID="ZKo-lx-e9h">
             <objects>
                 <tableViewController id="C1h-0r-3tM" customClass="FamilyViewController" customModule="Finder" customModuleProvider="target" sceneMemberID="viewController">
@@ -88,7 +88,13 @@
                             <outlet property="delegate" destination="C1h-0r-3tM" id="gsg-HV-4Ad"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="i83-TT-xxH"/>
+                    <navigationItem key="navigationItem" title="Title" id="Ivi-fP-LMb">
+                        <barButtonItem key="rightBarButtonItem" title="Add" id="Oww-G5-Fzx">
+                            <connections>
+                                <segue destination="GCh-sQ-H9m" kind="show" id="PCm-3b-agr"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="GCh-sQ-H9m" kind="show" identifier="addPerson" id="K0l-5t-EKl"/>
                         <segue destination="ghY-4I-dBa" kind="show" identifier="seePerson" id="Hag-ct-mrS"/>
@@ -429,4 +435,7 @@
         <image name="placeholder" width="649" height="659"/>
         <image name="profileIcon" width="16" height="16"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="PCm-3b-agr"/>
+    </inferredMetricsTieBreakers>
 </document>

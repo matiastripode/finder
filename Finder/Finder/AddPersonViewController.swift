@@ -64,23 +64,15 @@ class AddPersonViewController: UIViewController, UITextFieldDelegate, UIImagePic
     @IBAction func dismissKeyboard() {
         self.textField.resignFirstResponder()
     }
-    
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            imageView.contentMode = .scaleAspectFit
-            imageView.image = pickedImage
-            imageUploaded = true
-        }
-        
-        dismiss(animated: true, completion: nil)
-    }
-    
+
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [String : Any]) {
         
         if let pickedImage = info[UIImagePickerControllerEditedImage] as? UIImage {
             imageView.contentMode = .scaleAspectFit
             imageView.image = pickedImage
+            imageUploaded = true
+
         }
         
         dismiss(animated: true, completion: nil)
@@ -93,6 +85,8 @@ class AddPersonViewController: UIViewController, UITextFieldDelegate, UIImagePic
             
             if let user = UserManager.shared.currentUser {
                 FinderManager.shared.add(familyMember, to: user, succes: {
+                    UserManager.shared.currentUser?.family?.append(familyMember)
+                    
                     self.dismiss(animated: true, completion: nil)
                 }, failure: {_ in
                     print ("There was an error adding the family member")
