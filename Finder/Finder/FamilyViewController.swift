@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class FamilyViewController: UITableViewController {
     
@@ -25,6 +26,8 @@ class FamilyViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tableView.reloadData()
+       
+        UserManager.shared.getFamily()
         
         if let family = UserManager.shared.currentUser?.family{
             self.array = family
@@ -79,8 +82,21 @@ class FamilyViewController: UITableViewController {
             cell?.imageView?.image = UIImage(named: "placeholder")
             cell?.textLabel?.text = member.name
             
-            if (member.image != nil) {
-                cell?.imageView?.image = member.image
+            
+//            cell?.imageView?.af_setImage(
+//                withURL: imageUrl,
+//                placeholderImage: UIImage(named: ImageConstants.Common.PlaceHolderSmall),
+//                filter: nil
+//            )
+
+            
+            if let url = NSURL(string:member.image_url) {
+                DispatchQueue.global().async {
+                    let data = try? Data(contentsOf: url as URL) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
+                    DispatchQueue.main.async {
+                        cell?.imageView?.image = UIImage(data: data!)
+                    }
+                }
             }
         }
         return cell!

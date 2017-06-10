@@ -214,6 +214,7 @@
 				TargetAttributes = {
 					2FBCF46B1EEC2805000DFE5F = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 332N44E879;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -446,7 +447,7 @@
 			baseConfigurationReference = 903AA90495D4A0690AFC4FB5 /* Pods-Finder.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 332N44E879;
 				INFOPLIST_FILE = Finder/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -461,7 +462,7 @@
 			baseConfigurationReference = 6A044272485CA8E5FDFCF8A4 /* Pods-Finder.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 332N44E879;
 				INFOPLIST_FILE = Finder/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

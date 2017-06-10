@@ -79,20 +79,23 @@ class AddPersonViewController: UIViewController, UITextFieldDelegate, UIImagePic
     
     @IBAction func onAddPerson () {
         if let text = self.textField.text, imageUploaded, text != "" {
-            let familyMember = FamilyMember (image: self.imageView.image, image_url: "", name:text)
             
             if let user = UserManager.shared.currentUser {
+                let familyMember = FamilyMember (image: self.imageView.image, image_url: "", name:text)
                 FinderManager.shared.add(familyMember, to: user, succes: {
-                    UserManager.shared.currentUser?.family?.append(familyMember)
                     
-                    self.dismiss(animated: true, completion: nil)
+                    DispatchQueue.main.async {
+                        self.navigationController!.popViewController(animated: true)
+                    }
                 }, failure: {_ in
                     print ("There was an error adding the family member")
-                    self.dismiss(animated: true, completion: nil)
+                    DispatchQueue.main.async {
+                        self.navigationController!.popViewController(animated: true)
+                    }
                 })
             }
-            //TODO: Add family member to user
-            self.navigationController!.popViewController(animated: true)
+
+            
             
         } else {
             
