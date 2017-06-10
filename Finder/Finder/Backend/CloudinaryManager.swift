@@ -2,7 +2,7 @@
 //  CloudinaryManager.swift
 //  Finder
 //
-//  Created by Anthony Lockett on 6/10/17.
+//  Created by Adel Abdelamseih  on 6/10/17.
 //  Copyright © 2017 Nicolas Porpiglia. All rights reserved.
 //
 
