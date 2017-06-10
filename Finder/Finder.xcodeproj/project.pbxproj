@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F76165A1EECBABD00E8C303 /* FinderResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7616591EECBABD00E8C303 /* FinderResultViewController.swift */; };
 		2FBCF4701EEC2805000DFE5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBCF46F1EEC2805000DFE5F /* AppDelegate.swift */; };
 		2FBCF4771EEC2805000DFE5F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FBCF4751EEC2805000DFE5F /* Main.storyboard */; };
 		2FBCF4791EEC2805000DFE5F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FBCF4781EEC2805000DFE5F /* Assets.xcassets */; };
@@ -32,7 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2FAD1B6D1EEC878600826A17 /* FinderResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinderResultViewController.swift; sourceTree = "<group>"; };
+		2F7616591EECBABD00E8C303 /* FinderResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinderResultViewController.swift; sourceTree = "<group>"; };
 		2FBCF46C1EEC2805000DFE5F /* Finder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Finder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FBCF46F1EEC2805000DFE5F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2FBCF4761EEC2805000DFE5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -111,11 +112,11 @@
 		2FBCF4911EEC59FB000DFE5F /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				2F7616591EECBABD00E8C303 /* FinderResultViewController.swift */,
 				2FBCF4831EEC3049000DFE5F /* ProfileViewController.swift */,
 				2FBCF4851EEC3085000DFE5F /* FamilyViewController.swift */,
 				2FBCF48F1EEC598E000DFE5F /* LoginViewController.swift */,
 				2FBCF4871EEC30B9000DFE5F /* FinderViewController.swift */,
-				2FAD1B6D1EEC878600826A17 /* FinderResultViewController.swift */,
 				2FBCF4891EEC448F000DFE5F /* AddPersonViewController.swift */,
 				2FBCF48B1EEC44CC000DFE5F /* FindResultViewController.swift */,
 			);
@@ -221,7 +222,7 @@
 				TargetAttributes = {
 					2FBCF46B1EEC2805000DFE5F = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = AT9B6399S7;
+						DevelopmentTeam = 332N44E879;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -319,6 +320,7 @@
 				3C210CA31EEC3DFB00BB559B /* FirebaseWrapper.swift in Sources */,
 				3C3F0F431EEC66F800A79C9B /* UserManager.swift in Sources */,
 				652CE0AE1EEC76210089347B /* CloudinaryManager.swift in Sources */,
+				2F76165A1EECBABD00E8C303 /* FinderResultViewController.swift in Sources */,
 				3C3F0F321EEC493200A79C9B /* FinderManager.swift in Sources */,
 				3C3F0F301EEC461400A79C9B /* User.swift in Sources */,
 				3C3F0F371EEC4ACB00A79C9B /* KairosManager.swift in Sources */,
@@ -453,7 +455,7 @@
 			baseConfigurationReference = 903AA90495D4A0690AFC4FB5 /* Pods-Finder.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = AT9B6399S7;
+				DEVELOPMENT_TEAM = 332N44E879;
 				INFOPLIST_FILE = Finder/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -468,7 +470,7 @@
 			baseConfigurationReference = 6A044272485CA8E5FDFCF8A4 /* Pods-Finder.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = AT9B6399S7;
+				DEVELOPMENT_TEAM = 332N44E879;
 				INFOPLIST_FILE = Finder/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
