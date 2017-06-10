@@ -151,7 +151,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="C5E-Nv-pav">
-                                <rect key="frame" x="67" y="138" width="240" height="240"/>
+                                <rect key="frame" x="67" y="108.5" width="240" height="240"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="240" id="BFF-Km-LOu"/>
@@ -162,38 +162,61 @@
                                 </connections>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pEU-mB-xld">
-                                <rect key="frame" x="67" y="433" width="240" height="30"/>
+                                <rect key="frame" x="67" y="362.5" width="240" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="tW5-L1-fVo"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outlet property="delegate" destination="GCh-sQ-H9m" id="CYZ-f6-55Z"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hcx-1d-KSC">
-                                <rect key="frame" x="67" y="498" width="240" height="46"/>
+                                <rect key="frame" x="67" y="410" width="240" height="46"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="46" id="FjO-LL-C7f"/>
                                     <constraint firstAttribute="width" constant="240" id="KES-WN-Y8g"/>
                                 </constraints>
                                 <state key="normal" title="Done"/>
+                                <connections>
+                                    <action selector="onAddPerson" destination="GCh-sQ-H9m" eventType="touchUpInside" id="EcQ-QE-AuC"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="pEU-mB-xld" firstAttribute="leading" secondItem="F24-SC-Y7e" secondAttribute="leadingMargin" constant="51" id="0TN-Pc-xC1"/>
-                            <constraint firstItem="Hcx-1d-KSC" firstAttribute="top" secondItem="pEU-mB-xld" secondAttribute="bottom" constant="35" id="1Mu-Kz-kkp"/>
+                            <constraint firstItem="Hcx-1d-KSC" firstAttribute="top" secondItem="pEU-mB-xld" secondAttribute="bottom" constant="17.5" id="1Mu-Kz-kkp"/>
                             <constraint firstAttribute="trailingMargin" secondItem="pEU-mB-xld" secondAttribute="trailing" constant="52" id="Kxk-Pg-QI4"/>
                             <constraint firstItem="Hcx-1d-KSC" firstAttribute="leading" secondItem="F24-SC-Y7e" secondAttribute="leadingMargin" constant="51" id="c20-72-KUN"/>
-                            <constraint firstItem="C5E-Nv-pav" firstAttribute="top" secondItem="FbI-v0-cQn" secondAttribute="bottom" constant="74" id="fVT-JX-Dd6"/>
-                            <constraint firstItem="pEU-mB-xld" firstAttribute="top" secondItem="C5E-Nv-pav" secondAttribute="bottom" constant="55" id="jFZ-V2-2Ow"/>
+                            <constraint firstItem="pEU-mB-xld" firstAttribute="top" secondItem="C5E-Nv-pav" secondAttribute="bottom" constant="14" id="jFZ-V2-2Ow"/>
                             <constraint firstItem="C5E-Nv-pav" firstAttribute="centerX" secondItem="F24-SC-Y7e" secondAttribute="centerX" id="sHc-Pn-PDf"/>
+                            <constraint firstItem="C5E-Nv-pav" firstAttribute="centerY" secondItem="F24-SC-Y7e" secondAttribute="centerY" constant="-105" id="xBy-zY-L8A"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Hcx-1d-KSC" secondAttribute="trailing" constant="52" id="yM9-39-BcZ"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="N1m-H1-7k2" appends="YES" id="Ca2-9J-Wsh"/>
+                        </connections>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="C5E-Nv-pav" id="VTS-en-y8E"/>
+                        <outlet property="textField" destination="pEU-mB-xld" id="pZv-Vb-Dkx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="of8-Xr-eEq" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="Wqt-up-gtg"/>
+                <tapGestureRecognizer id="Wqt-up-gtg">
+                    <connections>
+                        <action selector="openCameraButtonWithSender:" destination="GCh-sQ-H9m" id="r7B-sv-kgL"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="N1m-H1-7k2">
+                    <connections>
+                        <action selector="dismissKeyboard" destination="GCh-sQ-H9m" id="5nL-eg-W8z"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1929" y="-514"/>
         </scene>
@@ -404,7 +427,7 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ago-I4-LP1">
                                 <rect key="frame" x="67" y="434" width="240" height="46"/>
