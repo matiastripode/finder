@@ -11,6 +11,7 @@ import UIKit
 
 typealias Base64ImageData = String
 typealias UploadSuccessClosure = (UploadResult) -> Void
+typealias RecognizeSuccessClosure = (RecognizeResult) -> Void
 
 struct KairosImageData {
     var image: Base64ImageData
@@ -19,6 +20,11 @@ struct KairosImageData {
 struct UploadResult {
     var url: String
 }
+
+struct RecognizeResult {
+    var subject_id: String
+}
+
 class KairosManager {
     static let shared = KairosManager()
 
@@ -67,6 +73,34 @@ class KairosManager {
         }
 
     }
+
+    func recognize(_ image: UIImage,
+                success: @escaping RecognizeSuccessClosure,
+                failure: @escaping FailureClosure){
+        
+        let body  = [
+            "gallery_name":"MissingPersonFinder2017Test",
+            "image":"https://res.cloudinary.com/globanthackmiami/image/upload/v1497117727/Search1_tvn0tc.jpg"
+        ]
+        
+        // Example - /v2/media
+        KairosAPI.shared.request(method: "recognize",
+                                 data: body) { (result) in
+                                    print(result)
+                                    let subject_id = result["subject_id"] as? String
+                                    if let subject_id = subject_id {
+                                        let recognize = RecognizeResult(subject_id: subject_id)
+                                        success(recognize)
+                                    } else {
+                                        failure(NSError())
+                                    }
+        }
+        
+        
+        
+        
+    }
+
     
     func upload(_ member: FamilyMember,
                 success: @escaping UploadSuccessClosure,
@@ -75,6 +109,7 @@ class KairosManager {
         guard let image = member.image else {
             return failure(NSError())
         }
+
     
         cloudManager.upload(image: image, completion: { (url, error) in
             if error == nil {
@@ -129,7 +164,6 @@ class KairosManager {
                 failure(error)
             }
         }
-
     }
 }
 
