@@ -99,7 +99,7 @@ class FamilyViewController: UITableViewController, FamilyMemberCellDelegate {
                 DispatchQueue.global().async {
                     let data = try? Data(contentsOf: url as URL) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
                     DispatchQueue.main.async {
-                        cell?.imageView?.image = UIImage(data: data!)
+                        cell?.memberImageView?.image = UIImage(data: data!)
                     }
                 }
             }
