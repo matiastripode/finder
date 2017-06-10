@@ -79,10 +79,10 @@ class FamilyViewController: UITableViewController, FamilyMemberCellDelegate {
                 cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "Cell") as? FamilyMemberCell
             }
             
-              cell?.delegate = self
+            cell?.delegate = self
             //placeholder
             cell?.memberImageView.image = UIImage(named: "placeholder")
-            cell?.nameLabel.text = "Bob"
+            cell?.nameLabel.text = member.name
             
             // Let's keep track of the index in our data source
             cell?.cellIndex = indexPath.row
