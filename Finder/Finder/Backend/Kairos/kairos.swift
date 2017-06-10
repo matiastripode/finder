@@ -22,6 +22,7 @@ struct KairosConfig {
 
 public class KairosAPI {
     let api_url: String = "https://api.kairos.com/"
+    let media_api_url : String = "https://api.cloudinary.com/"
     let app_id: String
     let app_key: String
     var headers: HTTPURLResponse?
@@ -34,9 +35,15 @@ public class KairosAPI {
         self.app_key = app_key
     }
     
-    public func convertImageToBase64String(file: String) -> String {
+    public func convertImageFileToBase64String(file: String) -> String {
         let image = UIImage(named: file)
         let imageData = UIImageJPEGRepresentation(image!, 0)
+        let base64String = imageData?.base64EncodedString(options:[])
+        return base64String!
+    }
+    
+    public func convertImageToBase64String(image: UIImage) -> String {
+        let imageData = UIImageJPEGRepresentation(image, 0)
         let base64String = imageData?.base64EncodedString(options:[])
         return base64String!
     }
@@ -93,7 +100,10 @@ public class KairosAPI {
     
     public func request(method: String, data: Dictionary<String, Any>? = [:], httpTypeOverride: Any? = nil, callback: @escaping (AnyObject) -> ()) -> Void {
         
-        let url = (self.api_url + method).replacingOccurrences(of: "\\/{2,}", with: "/", options: .regularExpression, range: nil)
+        var url = self.apiUrl(method) + method
+        if !isMedia(method) {
+            url = (url).replacingOccurrences(of: "\\/{2,}", with: "/", options: .regularExpression, range: nil)
+        }
         
         var httpType: String = "POST" // default
         
@@ -119,4 +129,17 @@ public class KairosAPI {
             callback(data)
         }
     }
+    
+    fileprivate func isMedia(_ url: String) -> Bool {
+        return url.contains("image")
+    }
+    
+    fileprivate func apiUrl(_ url: String) -> String {
+        if isMedia(url)  {
+            return self.media_api_url
+        } else {
+            return self.api_url
+        }
+    }
+
 }
