@@ -25,7 +25,6 @@ class FamilyViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.tableView.reloadData()
        
         UserManager.shared.getFamily()
         
@@ -35,6 +34,8 @@ class FamilyViewController: UITableViewController {
         } else {
             isEmpty = true
         }
+        
+        self.tableView.reloadData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -81,14 +82,6 @@ class FamilyViewController: UITableViewController {
             //placeholder
             cell?.imageView?.image = UIImage(named: "placeholder")
             cell?.textLabel?.text = member.name
-            
-            
-//            cell?.imageView?.af_setImage(
-//                withURL: imageUrl,
-//                placeholderImage: UIImage(named: ImageConstants.Common.PlaceHolderSmall),
-//                filter: nil
-//            )
-
             
             if let url = NSURL(string:member.image_url) {
                 DispatchQueue.global().async {
