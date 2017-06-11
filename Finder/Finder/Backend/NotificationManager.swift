@@ -24,7 +24,7 @@ class NotificationManager {
                 success: @escaping BasicClosure,
                 failure: @escaping FailureClosure) {
         
-        let data = ["phone": phone,
+        let data = ["phone": UserManager.shared.currentUser?.phone,
                     "name": name]
         DataService.shared.writeData(by: "notifications/\(phone)",
             data: data as RawDataType,
