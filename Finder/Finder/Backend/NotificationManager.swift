@@ -40,11 +40,11 @@ class NotificationManager {
         
         _ = DataService.shared.retrieveDataStream(by: "notifications/\(reporterid)",
             success: { (result) in
-                guard let result = result else{
+                guard let result = result,
+                    let name = result["name"] as? String,
+                    let phone = result["phone"] as? String  else{
                     return failure(NSError())
                 }
-                let name = result["name"] as? String ?? ""
-                let phone = result["phone"] as? String ?? ""
                 
                 let data = RecieveNotificationResult(name: name, phone: phone)
                 
