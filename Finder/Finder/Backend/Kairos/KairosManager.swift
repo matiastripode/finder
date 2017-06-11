@@ -80,7 +80,7 @@ class KairosManager {
         
         let  imageStr = KairosAPI.shared.convertImageToBase64String(image: image)
         let body  = [
-            "gallery_name":"MissingPersonFinder2017Test",
+            "gallery_name":"globant123",
             "image":imageStr
         ]
         

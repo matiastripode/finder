@@ -37,7 +37,7 @@ class FinderManager {
                                                         "name": user.name]
                                             
                                             
-                                            DataService.shared.writeData(by: "reports/\(user.phone)",
+                                            DataService.shared.writeData(by: "reporters/\(user.phone)",
                                                 data: data as RawDataType, success: { _ in
                                                     
                                                     //Add member to firebase
