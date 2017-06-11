@@ -26,7 +26,7 @@ class NotificationManager {
         
         let data = ["phone": phone,
                     "name": name]
-        DataService.shared.writeData(by: "notifications/\(reporterid)",
+        DataService.shared.writeData(by: "notifications/\(phone)",
             data: data as RawDataType,
             success: { _ in success()},
             failure: failure)
