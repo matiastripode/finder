@@ -31,7 +31,7 @@ class NotificationManager {
         DataService.shared.writeData(by: "notifications/\(phone)",
             data: data as RawDataType,
             success: { _ in success()},
-            failure: failure)
+            failure: failure)        
     }
     
     func listen(_ reporterid: String,
@@ -59,6 +59,30 @@ class NotificationManager {
         }) { (_) in
             
         }
+    }
+    
+    func notifyLed() {
+        let url = "https://api.particle.io/v1/devices/33003e001147343339383037/newMatch?"
+        
+        var request = URLRequest(url: URL(string: url)!)
+        request.httpMethod = "POST"
+        let postString = "access_token=0eca45ed744c891850f1add8441e222a402f8861"
+        request.httpBody = postString.data(using: .utf8)
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data, error == nil else {                                                 // check for fundamental networking error
+                print("error=\(String(describing: error))")
+                return
+            }
+            
+            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {           // check for http errors
+                print("statusCode should be 200, but is \(httpStatus.statusCode)")
+                print("response = \(String(describing: response))")
+            }
+            
+            let responseString = String(data: data, encoding: .utf8)
+            print("responseString = \(String(describing: responseString))")
+        }
+        task.resume()
     }
 }
 

@@ -18,13 +18,12 @@ class FamilyViewController: UITableViewController, FamilyMemberCellDelegate {
     
     override func viewDidLoad() {
         
-//        self.tableView.register(FamilyMemberCell.self, forCellReuseIdentifier: kFamilyMemberIdentifier)
-
         NotificationManager.shared.listen((UserManager.shared.currentUser?.phone)!, success: { (result) in
             
-            //let timeInterval = Date().timeIntervalSinceNow
-            // if timeInterval > result.timeInterval {
-            // create a corresponding local notification
+            // Turn remote led on
+            NotificationManager.shared.notifyLed()
+
+            // Remove notification once receive it
             NotificationManager.shared.remove((UserManager.shared.currentUser?.phone)!)
             
             let notification = UILocalNotification()
