@@ -29,7 +29,7 @@ class LoginViewController: UIViewController {
         if (self.textField.text != nil && self.textField.text != ""){
             
             UserManager.shared.currentUser = User(family: nil,
-                                                  name: "User1",
+                                                  name: self.textField.text!,
                                                   phone: self.textField.text!,
                                                   galleryName: "globant123")
             UserDefaults.standard.set(self.textField.text!, forKey: "userPhone")

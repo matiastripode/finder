@@ -23,7 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         
-                
         self.window = UIWindow(frame: UIScreen.main.bounds)
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
 
@@ -31,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if let phone = UserDefaults.standard.object(forKey: "userPhone") as? String {
             UserManager.shared.currentUser = User(family: nil,
-                                                  name: "Matias Tripode",
+                                                  name: phone,
                                                   phone: phone,
                                                   galleryName: "globant123")
             
