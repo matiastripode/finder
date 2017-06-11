@@ -37,6 +37,7 @@ class FindResultViewController: UIViewController {
             }
         }
 
+        self.imageView.layer.cornerRadius = self.imageView.frame.size.width/2
     }
     
     override func viewDidAppear(_ animated: Bool) {

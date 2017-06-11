@@ -144,7 +144,7 @@ class FamilyViewController: UITableViewController, FamilyMemberCellDelegate {
             if let send = sender as? RecieveNotificationResult {
                 if let viewController = segue.destination as? FindResultViewController {
 
-                    viewController.phone = "Phone: " + send.phone
+                    viewController.phone = send.phone
                     
                 }
             }

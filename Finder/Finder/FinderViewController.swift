@@ -43,7 +43,7 @@ class FinderViewController: UIViewController, UIImagePickerControllerDelegate, U
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera) &&
             UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary) {
             
-            let alertController = UIAlertController(title: "Source", message: "Select a source", preferredStyle: .alert)
+            let alertController = UIAlertController(title: "Source", message: nil, preferredStyle: .alert)
             
             let cameraAction = UIAlertAction(title: "Camera", style: .default) { action in
                 self.imagePicker.sourceType = UIImagePickerControllerSourceType.camera;
