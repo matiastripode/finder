@@ -21,11 +21,13 @@ class NotificationManager {
     func notify(_ reporterid: String,
                 phone: String,
                 name: String,
+                imageUrl: String,
                 success: @escaping BasicClosure,
                 failure: @escaping FailureClosure) {
         
         let data = ["phone": UserManager.shared.currentUser?.phone,
-                    "name": name]
+                    "name": name,
+                    "imageUrl": imageUrl]
         DataService.shared.writeData(by: "notifications/\(phone)",
             data: data as RawDataType,
             success: { _ in success()},

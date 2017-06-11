@@ -32,7 +32,7 @@ class FinderManager {
             KairosManager.shared.enroll(user,
                                         member: updated,
                                         success: {
-                                            
+                                            //3. Add to Firebase
                                             let data = ["phone": user.phone,
                                                         "name": user.name]
                                             
@@ -51,17 +51,8 @@ class FinderManager {
                                                         failure: failure)
                                             
                                             
-                                            },
-                                                                         failure: failure)
+                                            },failure: failure)
                                             
-                                            
-//                                            //3. Add to firebase
-//                                            let dictionary = [ "username": user.name ]
-//                                            
-//                                            DataService.shared.writeData(by: "users/",
-//                                                                         data: dictionary as RawDataType, success: { (result) in
-//                                                                            succes()
-//                                            }, failure: failure)
             }, failure: failure)
 
         }, failure: failure)
@@ -72,7 +63,6 @@ class FinderManager {
              to user: User,
              succes: @escaping BasicClosure,
              failure: @escaping FailureClosure) {
-        
     }
     
     
@@ -107,11 +97,13 @@ class FinderManager {
 
                         let name = result["name"] as? String ?? ""
                         let phone =  result["phone"] as? String ?? ""
-                         
+                        let imageUrl = data.image_url
+                                                    
                         //4. Send push notificaitons
                         NotificationManager.shared.notify(owner,
                                                           phone: phone,
                                                           name: name,
+                                                          imageUrl: imageUrl,
                                                           success: succes,
                                                           failure: failure)
                 }, failure: failure)
