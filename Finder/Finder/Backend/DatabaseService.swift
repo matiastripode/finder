@@ -36,6 +36,10 @@ public protocol DataServiceType
                     data : RawDataType,
                     success: @escaping SuccessClosure,
                     failure: @escaping FailureClosure)
+    
+    func deleteData(by path: String,
+                    success: @escaping SuccessClosure,
+                    failure: @escaping FailureClosure)
 }
 
 public struct DataService : DataServiceType
@@ -81,6 +85,14 @@ public struct DataService : DataServiceType
         
         db.updateData(by: path,
                       data: data,
+                      success: success,
+                      failure: failure)
+    }
+    
+    public func deleteData(by path: String,
+                    success: @escaping SuccessClosure,
+                    failure: @escaping FailureClosure) {
+        db.deleteData(by: path,
                       success: success,
                       failure: failure)
     }

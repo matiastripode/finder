@@ -23,6 +23,7 @@ struct UploadResult {
 
 struct RecognizeResult {
     var subject_id: String
+    var image_url: String
 }
 
 class KairosManager {
@@ -78,32 +79,37 @@ class KairosManager {
                 success: @escaping RecognizeSuccessClosure,
                 failure: @escaping FailureClosure){
         
-        let  imageStr = KairosAPI.shared.convertImageToBase64String(image: image)
-        let body  = [
-            "gallery_name":"globant123",
-            "image":imageStr
-        ]
-        
-        
-        // Example - /v2/media
-        KairosAPI.shared.request(method: "recognize",
-                                 data: body) { (result) in
-                                    print(result)
-                                    guard let images = result["images"] as? [Any],
-                                        let image = images[0]  as? [String:Any],
-                                        let transaction = image["transaction"] as? [String:Any],
-                                        //let candidate = candidates[0] as? [String:Any],
-                                        let subject_id = transaction["subject_id"] as? String else {
-                                            return failure(NSError())
-                                    }
-                                    
-                                    let recognize = RecognizeResult(subject_id: subject_id)
-                                    success(recognize)
-        }
-        
-        
-        
-        
+        cloudManager.upload(image: image, completion: { (url, error) in
+            if error == nil {
+                if let url = url {
+                    
+                    let body  = [
+                        "gallery_name":"globant123",
+                        "image":url
+                    ]
+                    
+                    // Example - /v2/media
+                    KairosAPI.shared.request(method: "recognize",
+                                             data: body) { (result) in
+                                                print(result)
+                                                guard let images = result["images"] as? [Any],
+                                                    let image = images[0]  as? [String:Any],
+                                                    let transaction = image["transaction"] as? [String:Any],
+                                                    //let candidate = candidates[0] as? [String:Any],
+                                                    let subject_id = transaction["subject_id"] as? String else {
+                                                        return failure(NSError())
+                                                }
+                                                
+                                                let recognize = RecognizeResult(subject_id: subject_id, image_url: url)
+                                                success(recognize)
+                    }
+
+                    
+                }
+            } else {
+                failure(error!)
+            }
+        })
     }
 
     
