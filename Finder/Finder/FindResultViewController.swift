@@ -12,13 +12,13 @@ import MapKit
 class FindResultViewController: UIViewController {
     
     @IBOutlet weak var mapView : MKMapView!
-    @IBOutlet weak var phoneLabel : UITextField!
+    @IBOutlet weak var phoneLabel : UILabel!
     @IBOutlet weak var imageView : UIImageView!
     
-    let latitude = 0
-    let longitude = 0
+    let latitude = 25.8011416
+    let longitude = -80.2044331
     let imageURL: String? = nil
-    let phone: String? = nil
+    var phone: String? = nil
     
     
     override func viewDidLoad() {
@@ -36,11 +36,19 @@ class FindResultViewController: UIViewController {
                 }
             }
         }
-        
+
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         let annotation = MKPointAnnotation()
         annotation.coordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(self.latitude), longitude: CLLocationDegrees(self.longitude))
         mapView.addAnnotation(annotation)
         
+        let center = CLLocationCoordinate2D(latitude: CLLocationDegrees(self.latitude), longitude: CLLocationDegrees(self.longitude))
+        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+        
+        mapView.setRegion(region, animated: false)
+
     }
     
     override func didReceiveMemoryWarning() {

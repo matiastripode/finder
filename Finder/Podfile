@@ -12,4 +12,5 @@ target 'Finder' do
   pod ‘Firebase/Auth’
   pod ‘Firebase/Messaging’
   pod 'Cloudinary'
+  pod 'MBProgressHUD', '~> 1.0.0'
 end

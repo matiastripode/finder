@@ -36,6 +36,8 @@ class FamilyViewController: UITableViewController, FamilyMemberCellDelegate {
             let alertController = UIAlertController(title: "Good news", message: "Good news: Someone found your family member. You can reach that person at \(result.phone)", preferredStyle: .alert)
             
             let cameraAction = UIAlertAction(title: "Ok", style: .cancel) { action in
+                
+                self.performSegue(withIdentifier: "seePerson", sender: result)
             }
             alertController.addAction(cameraAction)
             
@@ -115,14 +117,7 @@ class FamilyViewController: UITableViewController, FamilyMemberCellDelegate {
             
             // Let's keep track of the index in our data source
             cell?.cellIndex = indexPath.row
-            
-//            cell?.imageView?.af_setImage(
-//                withURL: imageUrl,
-//                placeholderImage: UIImage(named: ImageConstants.Common.PlaceHolderSmall),
-//                filter: nil
-//            )
 
-            
             if let url = NSURL(string:member.image_url) {
                 DispatchQueue.global().async {
                     let data = try? Data(contentsOf: url as URL) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
@@ -140,15 +135,17 @@ class FamilyViewController: UITableViewController, FamilyMemberCellDelegate {
         
         if (isEmpty) {
             self.performSegue(withIdentifier: "addPerson", sender: nil)
-        } else {
-            self.performSegue(withIdentifier: "seePerson", sender: nil)
         }
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
-        if (segue.identifier == "findResults") {
-            if let viewController = segue.destination as? FindResultViewController {
-                // Call kairos
+        if (segue.identifier == "seePerson" && sender != nil){
+            if let send = sender as? RecieveNotificationResult {
+                if let viewController = segue.destination as? FindResultViewController {
+
+                    viewController.phone = "Phone: " + send.phone
+                    
+                }
             }
         }
     }

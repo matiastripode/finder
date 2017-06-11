@@ -28,7 +28,7 @@ class FinderResultViewController: UIViewController {
         FinderManager.shared.report(image,
                                     succes: {
                                         DispatchQueue.main.async {
-                                            let alertController = UIAlertController(title: "Result", message: "The person is missing, the family will contact you soon. Call police as soon as possible", preferredStyle: .alert)
+                                            let alertController = UIAlertController(title: "Result", message: "The person is missing, the family will contact you soon. Call police if necessary", preferredStyle: .alert)
                                             
                                             let cameraAction = UIAlertAction(title: "Ok", style: .cancel) { action in
                                             }
