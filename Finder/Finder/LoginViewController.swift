@@ -10,6 +10,8 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
+    @IBOutlet weak var textField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,16 +22,22 @@ class LoginViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
     
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool{
+        
+        if (self.textField.text != nil && self.textField.text != ""){
+            
+            UserManager.shared.currentUser = User(family: nil,
+                                                  name: "User1",
+                                                  phone: self.textField.text!,
+                                                  galleryName: "globant123")
+            UserDefaults.standard.set(self.textField.text!, forKey: "userPhone")
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+            return true
+        }
+        
+        return false
     }
-    */
 
 }

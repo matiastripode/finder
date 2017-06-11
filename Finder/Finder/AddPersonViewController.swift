@@ -64,23 +64,13 @@ class AddPersonViewController: UIViewController, UITextFieldDelegate, UIImagePic
     @IBAction func dismissKeyboard() {
         self.textField.resignFirstResponder()
     }
-    
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            imageView.contentMode = .scaleAspectFit
-            imageView.image = pickedImage
-            imageUploaded = true
-        }
-        
-        dismiss(animated: true, completion: nil)
-    }
-    
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [String : Any]) {
         
         if let pickedImage = info[UIImagePickerControllerEditedImage] as? UIImage {
             imageView.contentMode = .scaleAspectFit
             imageView.image = pickedImage
+            imageUploaded = true
         }
         
         dismiss(animated: true, completion: nil)
@@ -89,18 +79,23 @@ class AddPersonViewController: UIViewController, UITextFieldDelegate, UIImagePic
     
     @IBAction func onAddPerson () {
         if let text = self.textField.text, imageUploaded, text != "" {
-            let familyMember = FamilyMember (image: self.imageView.image, image_url: "", name:text)
             
             if let user = UserManager.shared.currentUser {
-                FinderManager.shared.add(familyMember, to: user, succes: {
-                    self.dismiss(animated: true, completion: nil)
+                let familyMember = FamilyMember (image: self.imageView.image, image_url: "", name:text)
+                FinderManager.shared.add(familyMember, to: user, success: {
+                    
+                    DispatchQueue.main.async {
+                        self.navigationController!.popViewController(animated: true)
+                    }
                 }, failure: {_ in
                     print ("There was an error adding the family member")
-                    self.dismiss(animated: true, completion: nil)
+                    DispatchQueue.main.async {
+                        self.navigationController!.popViewController(animated: true)
+                    }
                 })
             }
-            //TODO: Add family member to user
-            self.navigationController!.dismiss(animated: true, completion: nil)
+
+            
             
         } else {
             

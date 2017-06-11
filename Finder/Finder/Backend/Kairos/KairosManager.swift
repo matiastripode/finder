@@ -7,24 +7,35 @@
 //
 
 import Foundation
-
+import UIKit
 
 typealias Base64ImageData = String
+typealias UploadSuccessClosure = (UploadResult) -> Void
+typealias RecognizeSuccessClosure = (RecognizeResult) -> Void
 
 struct KairosImageData {
     var image: Base64ImageData
 }
 
+struct UploadResult {
+    var url: String
+}
+
+struct RecognizeResult {
+    var subject_id: String
+}
 
 class KairosManager {
     static let shared = KairosManager()
-    
+
+    let cloudManager = CloudinaryManager.shared
+ 
     func detect( _ data: KairosImageData,
                  success: @escaping BasicClosure,
                  failure: @escaping FailureClosure) {
         
         
-        let base64ImageData = KairosAPI.shared.convertImageToBase64String(file: "elizabeth.jpg")
+        let base64ImageData = KairosAPI.shared.convertImageFileToBase64String(file: "elizabeth.jpg")
         
         // setup json request params, with base64 data
         let jsonBodyDetect = [
@@ -33,7 +44,9 @@ class KairosManager {
         
         KairosAPI.shared.request(method: "enroll", data: jsonBodyDetect) { data in
             // check image key exist and get data
-            if let image = ((data as? [String : AnyObject])!["images"])![0] {
+            if let imageData = data as? [String : AnyObject],
+                let imageArray = imageData["images"] as? [AnyObject?],
+                let image = imageArray[0] {
                 // get root image and primary key objects
                 let attributes = (image as? [String : AnyObject])!["attributes"]
                 let transaction = (image as? [String : AnyObject])!["transaction"]
@@ -60,6 +73,60 @@ class KairosManager {
         }
 
     }
+
+    func recognize(_ image: UIImage,
+                success: @escaping RecognizeSuccessClosure,
+                failure: @escaping FailureClosure){
+        
+        let  imageStr = KairosAPI.shared.convertImageToBase64String(image: image)
+        let body  = [
+            "gallery_name":"globant123",
+            "image":imageStr
+        ]
+        
+        
+        // Example - /v2/media
+        KairosAPI.shared.request(method: "recognize",
+                                 data: body) { (result) in
+                                    print(result)
+                                    guard let images = result["images"] as? [Any],
+                                        let image = images[0]  as? [String:Any],
+                                        let transaction = image["transaction"] as? [String:Any],
+                                        //let candidate = candidates[0] as? [String:Any],
+                                        let subject_id = transaction["subject_id"] as? String else {
+                                            return failure(NSError())
+                                    }
+                                    
+                                    let recognize = RecognizeResult(subject_id: subject_id)
+                                    success(recognize)
+        }
+        
+        
+        
+        
+    }
+
+    
+    func upload(_ member: FamilyMember,
+                success: @escaping UploadSuccessClosure,
+                failure: @escaping FailureClosure){
+    
+        guard let image = member.image else {
+            return failure(NSError())
+        }
+
+    
+        cloudManager.upload(image: image, completion: { (url, error) in
+            if error == nil {
+                if let url = url {
+                    let data = UploadResult(url: url)
+                    success(data)
+                }
+            } else {
+                failure(error!)
+            }
+        })
+    }
     
     func enroll(_ user: User,
                 member: FamilyMember,
@@ -69,12 +136,14 @@ class KairosManager {
         let jsonBody = [
             "image": member.image_url,  //"https://media.kairos.com/test1.jpg",
             "gallery_name": user.galleryName,
-            "subject_id": member.name//"test1"
+            "subject_id": user.phone + member.name//"test1"
         ]
         
         KairosAPI.shared.request(method: "enroll", data: jsonBody) { data in
             // check image key exist and get data
-            if let image = ((data as? [String : AnyObject])!["images"])![0] {
+            if let imageData = data as? [String : AnyObject],
+                let imageArray = imageData["images"] as? [AnyObject?],
+                let image = imageArray[0] {
                 // get root image and primary key objects
                 let attributes = (image as? [String : AnyObject])!["attributes"]
                 let transaction = (image as? [String : AnyObject])!["transaction"]
@@ -100,7 +169,6 @@ class KairosManager {
                 failure(error)
             }
         }
-
     }
 }
 

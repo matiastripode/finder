@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F76165A1EECBABD00E8C303 /* FinderResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7616591EECBABD00E8C303 /* FinderResultViewController.swift */; };
 		2FBCF4701EEC2805000DFE5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBCF46F1EEC2805000DFE5F /* AppDelegate.swift */; };
 		2FBCF4771EEC2805000DFE5F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FBCF4751EEC2805000DFE5F /* Main.storyboard */; };
 		2FBCF4791EEC2805000DFE5F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FBCF4781EEC2805000DFE5F /* Assets.xcassets */; };
@@ -17,6 +18,8 @@
 		2FBCF48A1EEC448F000DFE5F /* AddPersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBCF4891EEC448F000DFE5F /* AddPersonViewController.swift */; };
 		2FBCF48C1EEC44CC000DFE5F /* FindResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBCF48B1EEC44CC000DFE5F /* FindResultViewController.swift */; };
 		2FBCF4901EEC598E000DFE5F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBCF48F1EEC598E000DFE5F /* LoginViewController.swift */; };
+		2FBCF4931EEC702B000DFE5F /* FamilyMemberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBCF4921EEC702B000DFE5F /* FamilyMemberCell.swift */; };
+		3C1C06F31EECAAEA00E076DC /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1C06F21EECAAEA00E076DC /* NotificationManager.swift */; };
 		3C210CA21EEC3DFB00BB559B /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C210CA01EEC3DFB00BB559B /* DatabaseService.swift */; };
 		3C210CA31EEC3DFB00BB559B /* FirebaseWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C210CA11EEC3DFB00BB559B /* FirebaseWrapper.swift */; };
 		3C3F0F271EEC43D100A79C9B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3C3F0F261EEC43D100A79C9B /* GoogleService-Info.plist */; };
@@ -26,10 +29,12 @@
 		3C3F0F371EEC4ACB00A79C9B /* KairosManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3F0F361EEC4ACB00A79C9B /* KairosManager.swift */; };
 		3C3F0F401EEC4B3B00A79C9B /* kairos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3F0F3B1EEC4B3B00A79C9B /* kairos.swift */; };
 		3C3F0F431EEC66F800A79C9B /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3F0F421EEC66F800A79C9B /* UserManager.swift */; };
+		652CE0AE1EEC76210089347B /* CloudinaryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652CE0AD1EEC76210089347B /* CloudinaryManager.swift */; };
 		85EB2A638E492F85E246F7F1 /* Pods_Finder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77952C9BE9BFF2584E6B613B /* Pods_Finder.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2F7616591EECBABD00E8C303 /* FinderResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinderResultViewController.swift; sourceTree = "<group>"; };
 		2FBCF46C1EEC2805000DFE5F /* Finder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Finder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FBCF46F1EEC2805000DFE5F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2FBCF4761EEC2805000DFE5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -42,6 +47,8 @@
 		2FBCF4891EEC448F000DFE5F /* AddPersonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPersonViewController.swift; sourceTree = "<group>"; };
 		2FBCF48B1EEC44CC000DFE5F /* FindResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindResultViewController.swift; sourceTree = "<group>"; };
 		2FBCF48F1EEC598E000DFE5F /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		2FBCF4921EEC702B000DFE5F /* FamilyMemberCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FamilyMemberCell.swift; sourceTree = "<group>"; };
+		3C1C06F21EECAAEA00E076DC /* NotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		3C210CA01EEC3DFB00BB559B /* DatabaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
 		3C210CA11EEC3DFB00BB559B /* FirebaseWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseWrapper.swift; sourceTree = "<group>"; };
 		3C3F0F261EEC43D100A79C9B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -51,6 +58,7 @@
 		3C3F0F361EEC4ACB00A79C9B /* KairosManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KairosManager.swift; sourceTree = "<group>"; };
 		3C3F0F3B1EEC4B3B00A79C9B /* kairos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = kairos.swift; sourceTree = "<group>"; };
 		3C3F0F421EEC66F800A79C9B /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		652CE0AD1EEC76210089347B /* CloudinaryManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudinaryManager.swift; sourceTree = "<group>"; };
 		6A044272485CA8E5FDFCF8A4 /* Pods-Finder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Finder.release.xcconfig"; path = "Pods/Target Support Files/Pods-Finder/Pods-Finder.release.xcconfig"; sourceTree = "<group>"; };
 		77952C9BE9BFF2584E6B613B /* Pods_Finder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Finder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		903AA90495D4A0690AFC4FB5 /* Pods-Finder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Finder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Finder/Pods-Finder.debug.xcconfig"; sourceTree = "<group>"; };
@@ -89,6 +97,7 @@
 		2FBCF46E1EEC2805000DFE5F /* Finder */ = {
 			isa = PBXGroup;
 			children = (
+				4567102C1EEC960800323EAD /* Views */,
 				2FBCF4911EEC59FB000DFE5F /* ViewControllers */,
 				3C3F0F2C1EEC461400A79C9B /* Models */,
 				3C3F0F261EEC43D100A79C9B /* GoogleService-Info.plist */,
@@ -105,6 +114,7 @@
 		2FBCF4911EEC59FB000DFE5F /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				2F7616591EECBABD00E8C303 /* FinderResultViewController.swift */,
 				2FBCF4831EEC3049000DFE5F /* ProfileViewController.swift */,
 				2FBCF4851EEC3085000DFE5F /* FamilyViewController.swift */,
 				2FBCF48F1EEC598E000DFE5F /* LoginViewController.swift */,
@@ -118,11 +128,13 @@
 		3C210C9F1EEC3DFB00BB559B /* Backend */ = {
 			isa = PBXGroup;
 			children = (
+				652CE0AC1EEC760D0089347B /* Cloudinary */,
 				3C3F0F351EEC4ACB00A79C9B /* Kairos */,
 				3C210CA01EEC3DFB00BB559B /* DatabaseService.swift */,
 				3C210CA11EEC3DFB00BB559B /* FirebaseWrapper.swift */,
 				3C3F0F311EEC493200A79C9B /* FinderManager.swift */,
 				3C3F0F421EEC66F800A79C9B /* UserManager.swift */,
+				3C1C06F21EECAAEA00E076DC /* NotificationManager.swift */,
 			);
 			path = Backend;
 			sourceTree = "<group>";
@@ -145,6 +157,14 @@
 			path = Kairos;
 			sourceTree = "<group>";
 		};
+		4567102C1EEC960800323EAD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2FBCF4921EEC702B000DFE5F /* FamilyMemberCell.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		55F88A3A4A2D389CBF7C8322 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -152,6 +172,14 @@
 				6A044272485CA8E5FDFCF8A4 /* Pods-Finder.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		652CE0AC1EEC760D0089347B /* Cloudinary */ = {
+			isa = PBXGroup;
+			children = (
+				652CE0AD1EEC76210089347B /* CloudinaryManager.swift */,
+			);
+			name = Cloudinary;
 			sourceTree = "<group>";
 		};
 		DC1C13E92A82A7DE48C3E634 /* Frameworks */ = {
@@ -294,11 +322,15 @@
 				3C210CA21EEC3DFB00BB559B /* DatabaseService.swift in Sources */,
 				3C210CA31EEC3DFB00BB559B /* FirebaseWrapper.swift in Sources */,
 				3C3F0F431EEC66F800A79C9B /* UserManager.swift in Sources */,
+				652CE0AE1EEC76210089347B /* CloudinaryManager.swift in Sources */,
+				2F76165A1EECBABD00E8C303 /* FinderResultViewController.swift in Sources */,
 				3C3F0F321EEC493200A79C9B /* FinderManager.swift in Sources */,
 				3C3F0F301EEC461400A79C9B /* User.swift in Sources */,
 				3C3F0F371EEC4ACB00A79C9B /* KairosManager.swift in Sources */,
 				2FBCF4861EEC3085000DFE5F /* FamilyViewController.swift in Sources */,
+				2FBCF4931EEC702B000DFE5F /* FamilyMemberCell.swift in Sources */,
 				2FBCF48C1EEC44CC000DFE5F /* FindResultViewController.swift in Sources */,
+				3C1C06F31EECAAEA00E076DC /* NotificationManager.swift in Sources */,
 				2FBCF4701EEC2805000DFE5F /* AppDelegate.swift in Sources */,
 				2FBCF4841EEC3049000DFE5F /* ProfileViewController.swift in Sources */,
 				2FBCF48A1EEC448F000DFE5F /* AddPersonViewController.swift in Sources */,

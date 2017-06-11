@@ -24,8 +24,9 @@ class FindResultViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.phoneLabel.text = phone
-
+        if let phone = self.phone {
+            self.phoneLabel.text = phone
+        }
         
         if let imageURL = imageURL, let url = URL(string: imageURL) {
             DispatchQueue.global().async {
