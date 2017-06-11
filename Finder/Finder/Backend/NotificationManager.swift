@@ -11,6 +11,7 @@ import Foundation
 struct RecieveNotificationResult {
     var name: String
     var phone: String
+    var imageUrl: String
 }
 typealias NotificationSuccess = (RecieveNotificationResult)->()
 
@@ -42,11 +43,14 @@ class NotificationManager {
             success: { (result) in
                 guard let result = result,
                     let name = result["name"] as? String,
-                    let phone = result["phone"] as? String  else{
+                    let phone = result["phone"] as? String,
+                    let imageUrl = result["imagerUrl"] as? String else{
                     return failure(NSError())
                 }
                 
-                let data = RecieveNotificationResult(name: name, phone: phone)
+                let data = RecieveNotificationResult(name: name,
+                                                     phone: phone,
+                                                     imageUrl: imageUrl)
                 
                 success(data)
         }, failure: failure)
