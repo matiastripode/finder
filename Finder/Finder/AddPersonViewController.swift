@@ -13,7 +13,8 @@ class AddPersonViewController: UIViewController, UITextFieldDelegate, UIImagePic
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var textField: UITextField!
-
+    @IBOutlet weak var doneButton: UIButton!
+    
     let imagePicker = UIImagePickerController()
 
     var imageUploaded: Bool = false
@@ -23,6 +24,13 @@ class AddPersonViewController: UIViewController, UITextFieldDelegate, UIImagePic
 
         imagePicker.delegate = self
         imagePicker.allowsEditing = true
+        
+        let myColor : UIColor = UIColor( red: 136/255, green: 214/255, blue:188/255, alpha: 1.0 )
+        self.textField.layer.borderColor = myColor.cgColor
+        self.textField.layer.borderWidth = 1
+        
+        
+        self.doneButton.layer.cornerRadius = 15
     }
     
     @IBAction func openCameraButton(sender: AnyObject) {
@@ -30,7 +38,7 @@ class AddPersonViewController: UIViewController, UITextFieldDelegate, UIImagePic
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera) &&
             UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary) {
             
-            let alertController = UIAlertController(title: "Source", message: "Select a source", preferredStyle: .alert)
+            let alertController = UIAlertController(title: "Source", message: nil, preferredStyle: .alert)
             
             let cameraAction = UIAlertAction(title: "Camera", style: .default) { action in
                 self.imagePicker.sourceType = UIImagePickerControllerSourceType.camera;
