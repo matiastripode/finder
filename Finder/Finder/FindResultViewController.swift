@@ -1,5 +1,5 @@
 //
-//  FinderResultViewController.swift
+//  FindResultViewController.swift
 //  Finder
 //
 //  Created by Nicolas Porpiglia on 6/10/17.
@@ -7,53 +7,39 @@
 //
 
 import UIKit
+import MapKit
 
-class FinderResultViewController: UIViewController {
+class FindResultViewController: UIViewController {
     
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var resultImageView: UIImageView!
-    @IBOutlet weak var image: UIImage?
+    @IBOutlet weak var mapView : MKMapView!
+    @IBOutlet weak var phoneLabel : UITextField!
+    @IBOutlet weak var imageView : UIImageView!
+    
+    let latitude = 0
+    let longitude = 0
+    let imageURL: String? = nil
+    let phone: String? = nil
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
-        guard let image = image else {
-            return
+        if let phone = self.phone {
+            self.phoneLabel.text = phone
         }
         
-        self.imageView.image = image
-        
-        
-        FinderManager.shared.report(image,
-                                    succes: {
-                                        DispatchQueue.main.async {
-                                            let alertController = UIAlertController(title: "Result", message: "The person is missing, the family will contact you soon. Call police as soon as possible", preferredStyle: .alert)
-                                            
-                                            let cameraAction = UIAlertAction(title: "Ok", style: .cancel) { action in
-                                            }
-                                            alertController.addAction(cameraAction)
-                                            
-                                            self.present(alertController, animated: true) {
-                                            }
-                                            
-                                            self.resultImageView.backgroundColor = .green
-                                        }
-                                        
-        }, failure: { (error) in
-            DispatchQueue.main.async {
-                let alertController = UIAlertController(title: "Result", message: "The person is not missing. Thank you for validating anyway", preferredStyle: .alert)
-                
-                let cameraAction = UIAlertAction(title: "Ok", style: .cancel) { action in
+        if let imageURL = imageURL, let url = URL(string: imageURL) {
+            DispatchQueue.global().async {
+                let data = try? Data(contentsOf: url) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
+                DispatchQueue.main.async {
+                    self.imageView.image = UIImage(data: data!)
                 }
-                alertController.addAction(cameraAction)
-                
-                self.present(alertController, animated: true) {
-                }
-                self.resultImageView.backgroundColor = .red
             }
-            
-        })
+        }
+        
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(self.latitude), longitude: CLLocationDegrees(self.longitude))
+        mapView.addAnnotation(annotation)
         
     }
     
@@ -62,9 +48,6 @@ class FinderResultViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func goBack () {
-        self.navigationController?.dismiss(animated: true, completion: nil)
-    }
     
     /*
      // MARK: - Navigation
