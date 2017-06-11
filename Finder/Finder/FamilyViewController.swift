@@ -25,10 +25,12 @@ class FamilyViewController: UITableViewController, FamilyMemberCellDelegate {
             //let timeInterval = Date().timeIntervalSinceNow
             // if timeInterval > result.timeInterval {
             // create a corresponding local notification
+            NotificationManager.shared.remove((UserManager.shared.currentUser?.phone)!)
+            
             let notification = UILocalNotification()
             notification.alertBody = "Someone found your family member. You can reach that person at \(result.phone)"
             notification.alertAction = "open"
-            notification.fireDate = Date()
+            notification.fireDate = Date() + 5
             UIApplication.shared.scheduleLocalNotification(notification)
             
             

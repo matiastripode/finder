@@ -36,7 +36,7 @@ class NotificationManager {
                 success: @escaping NotificationSuccess,
                 failure: @escaping FailureClosure) {
         
-        DataService.shared.retrieveDataStream(by: "notifications/\(reporterid)",
+        _ = DataService.shared.retrieveDataStream(by: "notifications/\(reporterid)",
             success: { (result) in
                 guard let result = result else{
                     return failure(NSError())
@@ -48,6 +48,15 @@ class NotificationManager {
                 
                 success(data)
         }, failure: failure)
+    }
+    
+    func remove(_ reporterid: String) {
+        DataService.shared.deleteData(by:  "notifications/\(reporterid)",
+                                      success: { (_) in
+                                        
+        }) { (_) in
+            
+        }
     }
 }
 
