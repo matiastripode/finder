@@ -12,12 +12,22 @@ class FinderViewController: UIViewController, UIImagePickerControllerDelegate, U
  
     var image: UIImage? = nil
     let imagePicker = UIImagePickerController()
+    @IBOutlet weak var hintView: UIView!
+    @IBOutlet weak var buttonPicture: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         imagePicker.delegate = self
         imagePicker.allowsEditing = true
+        
+        self.buttonPicture.layer.cornerRadius = 15
+        self.hintView.layer.cornerRadius = 10
+        
+        
+        let myColor : UIColor = UIColor( red: 136/255, green: 214/255, blue:188/255, alpha: 1.0 )
+        self.hintView.layer.borderColor = myColor.cgColor
+        self.hintView.layer.borderWidth = 1
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){

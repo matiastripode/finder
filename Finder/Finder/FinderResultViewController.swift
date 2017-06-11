@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 class FinderResultViewController: UIViewController {
 
@@ -24,7 +25,7 @@ class FinderResultViewController: UIViewController {
         
         self.imageView.image = image
         
-        
+        MBProgressHUD.showAdded(to: self.view, animated: true)
         FinderManager.shared.report(image,
                                     succes: {
                                         DispatchQueue.main.async {
@@ -37,7 +38,7 @@ class FinderResultViewController: UIViewController {
                                             self.present(alertController, animated: true) {
                                             }
                                             
-                                            self.resultImageView.backgroundColor = .green
+                                            MBProgressHUD.hide(for: self.view, animated: true)
                                         }
                                         
         }, failure: { (error) in
@@ -50,7 +51,7 @@ class FinderResultViewController: UIViewController {
                 
                 self.present(alertController, animated: true) {
                 }
-                self.resultImageView.backgroundColor = .red
+                MBProgressHUD.hide(for: self.view, animated: true)
             }
 
         })

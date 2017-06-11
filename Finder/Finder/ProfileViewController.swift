@@ -11,6 +11,7 @@ import UIKit
 class ProfileViewController: UIViewController {
 
     @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var imageView: UIImageView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +19,9 @@ class ProfileViewController: UIViewController {
         if let phone = UserDefaults.standard.object(forKey: "userPhone") as? String {
             self.textField.text = phone
         }
+        
+        imageView.layer.masksToBounds = true
+        imageView.layer.cornerRadius = imageView.frame.size.width / 2
     }
 
     override func didReceiveMemoryWarning() {

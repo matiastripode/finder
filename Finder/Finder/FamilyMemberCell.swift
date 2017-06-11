@@ -17,6 +17,7 @@ class FamilyMemberCell: UITableViewCell {
 
     @IBOutlet weak var memberImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var memberView: UIView!
 
     @IBOutlet weak var statusButton: UIButton!
     
@@ -27,8 +28,13 @@ class FamilyMemberCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-    }
+
+        // Circular Member Images
+        memberImageView.layer.masksToBounds = true
+        memberImageView.layer.cornerRadius = memberImageView.frame.size.width / 2
+        
+        memberView.layer.cornerRadius = 10
+}
     
     func setData (member: FamilyMember) {
         self.memberImageView.image = member.image

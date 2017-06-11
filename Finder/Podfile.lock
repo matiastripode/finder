@@ -47,6 +47,7 @@ PODS:
     - GoogleToolboxForMac/NSString+URLArguments (= 2.1.1)
   - GoogleToolboxForMac/NSString+URLArguments (2.1.1)
   - GTMSessionFetcher/Core (1.1.10)
+  - MBProgressHUD (1.0.0)
   - Protobuf (3.3.0)
 
 DEPENDENCIES:
@@ -55,6 +56,7 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Database
   - Firebase/Messaging
+  - MBProgressHUD (~> 1.0.0)
 
 SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
@@ -68,8 +70,9 @@ SPEC CHECKSUMS:
   FirebaseMessaging: 227406c05b0dc9290702d2e9f18ab5528f0c2cf2
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   GTMSessionFetcher: 30d874b96d0d76028f61fbd122801e3f030d47db
+  MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   Protobuf: d582fecf68201eac3d79ed61369ef45734394b9c
 
-PODFILE CHECKSUM: 5a71f3ce874967f5fdc28d8b4e09821c54c13ca9
+PODFILE CHECKSUM: 94fa6450fe2f842ead611aa6da06abf22af46aa8
 
 COCOAPODS: 1.2.1

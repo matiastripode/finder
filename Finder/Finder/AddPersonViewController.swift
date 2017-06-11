@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 class AddPersonViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -25,7 +26,6 @@ class AddPersonViewController: UIViewController, UITextFieldDelegate, UIImagePic
     }
     
     @IBAction func openCameraButton(sender: AnyObject) {
-        
         
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera) &&
             UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary) {
@@ -81,16 +81,21 @@ class AddPersonViewController: UIViewController, UITextFieldDelegate, UIImagePic
         if let text = self.textField.text, imageUploaded, text != "" {
             
             if let user = UserManager.shared.currentUser {
+                
+                MBProgressHUD.showAdded(to: self.view, animated: true)
+
                 let familyMember = FamilyMember (image: self.imageView.image, image_url: "", name:text)
                 FinderManager.shared.add(familyMember, to: user, success: {
                     
                     DispatchQueue.main.async {
                         self.navigationController!.popViewController(animated: true)
+                        MBProgressHUD.hide(for: self.view, animated: true)
                     }
+
                 }, failure: {_ in
-                    print ("There was an error adding the family member")
                     DispatchQueue.main.async {
                         self.navigationController!.popViewController(animated: true)
+                        MBProgressHUD.hide(for: self.view, animated: true)
                     }
                 })
             }
