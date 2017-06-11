@@ -82,7 +82,7 @@ class AddPersonViewController: UIViewController, UITextFieldDelegate, UIImagePic
             
             if let user = UserManager.shared.currentUser {
                 let familyMember = FamilyMember (image: self.imageView.image, image_url: "", name:text)
-                FinderManager.shared.add(familyMember, to: user, succes: {
+                FinderManager.shared.add(familyMember, to: user, success: {
                     
                     DispatchQueue.main.async {
                         self.navigationController!.popViewController(animated: true)

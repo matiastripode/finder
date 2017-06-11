@@ -20,6 +20,22 @@ class FamilyViewController: UITableViewController, FamilyMemberCellDelegate {
         
 //        self.tableView.register(FamilyMemberCell.self, forCellReuseIdentifier: kFamilyMemberIdentifier)
 
+        NotificationManager.shared.listen((UserManager.shared.currentUser?.phone)!, success: { (result) in
+            
+            //let timeInterval = Date().timeIntervalSinceNow
+            // if timeInterval > result.timeInterval {
+            // create a corresponding local notification
+            let notification = UILocalNotification()
+            notification.alertBody = "Good news: \(result.name) found your kid. You can reach him at \(result.phone)"
+            notification.alertAction = "open"
+            notification.fireDate = Date()
+            UIApplication.shared.scheduleLocalNotification(notification)
+            //}
+            
+        }) { (error) in
+            print("error")
+        }
+
         super.viewDidLoad()
     }
     

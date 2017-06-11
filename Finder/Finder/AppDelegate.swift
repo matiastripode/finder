@@ -23,27 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         
-        NotificationManager.shared.listen("idgeneradofirebase", success: { (result) in
-            
-            //let timeInterval = Date().timeIntervalSinceNow
-            // if timeInterval > result.timeInterval {
-                // create a corresponding local notification
-                let notification = UILocalNotification()
-                notification.alertBody = "Good news: \(result.name) found your kid. You can reach him at \(result.phone)"
-                notification.alertAction = "open"
-                notification.fireDate = Date()
-                UIApplication.shared.scheduleLocalNotification(notification)
-            //}
-            
-        }) { (error) in
-            print("error")
-        }
-        
-        UserManager.shared.currentUser = User(family: nil,
-                                              name: "Matias Tripode",
-                                              phone: "206-345-2354",
-                                              galleryName: "20170610Globant")
-        
         self.window = UIWindow(frame: UIScreen.main.bounds)
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
 
@@ -51,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if let phone = UserDefaults.standard.object(forKey: "userPhone") as? String {
             UserManager.shared.currentUser = User(family: nil,
-                                                  name: "Matias Tripode",
+                                                  name: phone,
                                                   phone: phone,
                                                   galleryName: "globant123")
             
