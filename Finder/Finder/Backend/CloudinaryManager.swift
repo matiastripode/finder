@@ -32,7 +32,7 @@ class CloudinaryManager {
         
         let params = CLDUploadRequestParams()
         _ = params.setFolder(user_folder)
-
+        
         cloudinary.createUploader().upload(data: data!, uploadPreset: upload_preset, params: params, progress: nil) { (result, error) in
             if error == nil {
                 completion(result?.secureUrl, nil)
