@@ -31,9 +31,7 @@ class FamilyViewController: UITableViewController, FamilyMemberCellDelegate {
             notification.alertAction = "open"
             notification.fireDate = Date() + 5
             UIApplication.shared.scheduleLocalNotification(notification)
-            
-            
-            
+
             let alertController = UIAlertController(title: "Good news", message: "Someone found your family member. You can reach that person at \(result.phone)", preferredStyle: .alert)
             
             let cameraAction = UIAlertAction(title: "Ok", style: .cancel) { action in
@@ -86,7 +84,7 @@ class FamilyViewController: UITableViewController, FamilyMemberCellDelegate {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if (isEmpty) {
-            return 1
+            return 0
         }
         
         return self.array.count
@@ -108,7 +106,7 @@ class FamilyViewController: UITableViewController, FamilyMemberCellDelegate {
            let member = self.array[indexPath.row]
             cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as? FamilyMemberCell
             if (cell == nil) {
-                cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "Cell") as? FamilyMemberCell
+                cell = FamilyMemberCell(style: UITableViewCellStyle.default, reuseIdentifier: "Cell") as? FamilyMemberCell
             }
             
             cell?.delegate = self

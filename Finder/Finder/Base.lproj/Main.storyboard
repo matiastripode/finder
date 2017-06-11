@@ -57,15 +57,18 @@
                                                         <constraint firstAttribute="height" constant="73" id="ouk-cU-IVS"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" red="0.53513601040000003" green="0.53513601040000003" blue="0.53513601040000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YkO-cT-tQh">
                                                     <rect key="frame" x="96.5" y="105" width="158" height="30"/>
+                                                    <color key="backgroundColor" red="0.53217887880000003" green="0.84080195430000004" blue="0.73728144169999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="158" id="Hbr-QD-k4F"/>
                                                     </constraints>
-                                                    <state key="normal" title="Start"/>
+                                                    <state key="normal" title="Start">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
                                                 </button>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -471,7 +474,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone number" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ahu-AC-fXh">
-                                <rect key="frame" x="26" y="131" width="322" height="30"/>
+                                <rect key="frame" x="26" y="318.5" width="322" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -480,7 +483,7 @@
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iad-K6-95v">
-                                <rect key="frame" x="26" y="189" width="322" height="46"/>
+                                <rect key="frame" x="26" y="376.5" width="322" height="46"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="46" id="NrD-CC-trO"/>
                                 </constraints>
@@ -489,25 +492,15 @@
                                     <segue destination="49e-Tb-3d3" kind="show" id="jEz-Ef-VQ1"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nyz-0O-WQ8">
-                                <rect key="frame" x="36" y="57" width="303" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ahu-AC-fXh" firstAttribute="leading" secondItem="wxY-LY-kdr" secondAttribute="leadingMargin" constant="10" id="5Rh-2F-BjQ"/>
                             <constraint firstItem="iad-K6-95v" firstAttribute="leading" secondItem="wxY-LY-kdr" secondAttribute="leadingMargin" constant="10" id="I85-n8-Jvc"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ahu-AC-fXh" secondAttribute="trailing" constant="11" id="ITP-y4-hYc"/>
-                            <constraint firstItem="Nyz-0O-WQ8" firstAttribute="top" secondItem="crw-Eu-VJh" secondAttribute="bottom" constant="37" id="O29-Pq-HDJ"/>
-                            <constraint firstItem="ahu-AC-fXh" firstAttribute="top" secondItem="Nyz-0O-WQ8" secondAttribute="bottom" constant="53.5" id="Tj6-N2-G6O"/>
+                            <constraint firstItem="ahu-AC-fXh" firstAttribute="centerY" secondItem="wxY-LY-kdr" secondAttribute="centerY" id="O0m-sO-8xK"/>
                             <constraint firstItem="iad-K6-95v" firstAttribute="top" secondItem="ahu-AC-fXh" secondAttribute="bottom" constant="28" id="VZg-I6-7Gv"/>
                             <constraint firstAttribute="trailingMargin" secondItem="iad-K6-95v" secondAttribute="trailing" constant="11" id="VtV-xt-DND"/>
-                            <constraint firstItem="Nyz-0O-WQ8" firstAttribute="leading" secondItem="wxY-LY-kdr" secondAttribute="leadingMargin" constant="20" id="dIz-gW-nZc"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Nyz-0O-WQ8" secondAttribute="trailing" constant="20" id="egC-gN-vXB"/>
-                            <constraint firstItem="Nyz-0O-WQ8" firstAttribute="centerX" secondItem="wxY-LY-kdr" secondAttribute="centerX" id="iX8-Wf-xjK"/>
                         </constraints>
                     </view>
                     <connections>
