@@ -26,10 +26,23 @@ class FamilyViewController: UITableViewController, FamilyMemberCellDelegate {
             // if timeInterval > result.timeInterval {
             // create a corresponding local notification
             let notification = UILocalNotification()
-            notification.alertBody = "Good news: \(result.name) found your kid. You can reach him at \(result.phone)"
+            notification.alertBody = "Someone found your family member. You can reach that person at \(result.phone)"
             notification.alertAction = "open"
             notification.fireDate = Date()
             UIApplication.shared.scheduleLocalNotification(notification)
+            
+            
+            
+            let alertController = UIAlertController(title: "Good news", message: "Good news: Someone found your family member. You can reach that person at \(result.phone)", preferredStyle: .alert)
+            
+            let cameraAction = UIAlertAction(title: "Ok", style: .cancel) { action in
+            }
+            alertController.addAction(cameraAction)
+            
+            self.present(alertController, animated: true) {
+                
+            }
+
             //}
             
         }) { (error) in

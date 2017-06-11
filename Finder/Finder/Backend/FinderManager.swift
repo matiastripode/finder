@@ -106,11 +106,11 @@ class FinderManager {
                                                         }
 
                         let name = result["name"] as? String ?? ""
-                        let phone = result["phone"] as? String ?? ""
-                                                    
+                        let phone = UserManager.shared.currentUser?.phone //result["phone"] as? String ?? ""
+                         
                         //4. Send push notificaitons
                         NotificationManager.shared.notify(owner,
-                                                          phone: phone,
+                                                          phone: phone!,
                                                           name: name,
                                                           success: succes,
                                                           failure: failure)
