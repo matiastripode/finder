@@ -41,7 +41,6 @@ class FinderResultViewController: UIViewController {
                                         }
                                         
         }, failure: { (error) in
-            print(error)
             DispatchQueue.main.async {
                 let alertController = UIAlertController(title: "Result", message: "The person is not missing. Thank you for validating anyway", preferredStyle: .alert)
                 

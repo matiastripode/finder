@@ -44,7 +44,7 @@ class FinderManager {
                                                     let memberId = user.phone + member.name
                                                     let data = ["name": member.name,
                                                                 "status": "notLost",
-                                                                "reporterId": user.phone]
+                                                                "reporterid": user.phone]
                                                     DataService.shared.writeData(by: "people/\(memberId)",
                                                         data: data as RawDataType,
                                                         success: { _ in success()},
@@ -90,7 +90,9 @@ class FinderManager {
         KairosManager.shared.recognize(image, success: { data in
             //2. find match in firebase
             
-            DataService.shared.retrieveData(by: "people/\(data.subject_id)", success: { (result) in
+            let url = "people/\(data.subject_id)"
+            
+            DataService.shared.retrieveData(by: url, success: { (result) in
                 //3. find the owner
                 guard let result = result,
                     let owner = result["reporterid"] as? String else {

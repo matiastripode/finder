@@ -136,7 +136,7 @@ class KairosManager {
         let jsonBody = [
             "image": member.image_url,  //"https://media.kairos.com/test1.jpg",
             "gallery_name": user.galleryName,
-            "subject_id": member.name//"test1"
+            "subject_id": user.phone + member.name//"test1"
         ]
         
         KairosAPI.shared.request(method: "enroll", data: jsonBody) { data in
