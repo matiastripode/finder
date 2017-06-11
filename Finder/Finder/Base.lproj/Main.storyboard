@@ -431,11 +431,15 @@
                                 <color key="textColor" red="0.53217887880000003" green="0.84080195430000004" blue="0.73728144169999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 (786) 213 1124" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CFf-9I-QYP">
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 (786) 213 1124" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CFf-9I-QYP">
                                 <rect key="frame" x="16" y="447" width="343" height="21"/>
+                                <gestureRecognizers/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.53513601040000003" green="0.53513601040000003" blue="0.53513601040000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="rJq-EA-hUB" appends="YES" id="2SF-Hl-vgM"/>
+                                </connections>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -458,6 +462,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tPW-Tf-FT7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="rJq-EA-hUB">
+                    <connections>
+                        <action selector="callPhone" destination="ghY-4I-dBa" id="v2I-rr-bSh"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1693.5999999999999" y="-1317.3913043478262"/>
         </scene>

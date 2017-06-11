@@ -17,7 +17,7 @@ class FindResultViewController: UIViewController {
     
     let latitude = 25.8011416
     let longitude = -80.2044331
-    let imageURL: String? = nil
+    var imageURL: String? = nil
     var phone: String? = nil
     
     
@@ -57,6 +57,28 @@ class FindResultViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    @IBAction func callPhone () {
+        self.callNumber(phoneNumber: self.phone!)
+    }
+    
+    
+    private func callNumber(phoneNumber:String) {
+        
+        if let phoneCallURL = URL(string: "tel://\(phoneNumber)") {
+            
+            let application:UIApplication = UIApplication.shared
+            if (application.canOpenURL(phoneCallURL)) {
+                if #available(iOS 10.0, *) {
+                    application.open(phoneCallURL, options: [:], completionHandler: nil)
+                } else {
+                    // Fallback on earlier versions
+                }
+            }
+        }
+    }
+    
+
     
     /*
      // MARK: - Navigation

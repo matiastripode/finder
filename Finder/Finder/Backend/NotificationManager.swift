@@ -44,7 +44,7 @@ class NotificationManager {
                 guard let result = result,
                     let name = result["name"] as? String,
                     let phone = result["phone"] as? String,
-                    let imageUrl = result["imagerUrl"] as? String else{
+                    let imageUrl = result["imageUrl"] as? String else{
                     return failure(NSError())
                 }
                 

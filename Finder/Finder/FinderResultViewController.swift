@@ -66,6 +66,7 @@ class FinderResultViewController: UIViewController {
     @IBAction func goBack () {
         self.navigationController?.dismiss(animated: true, completion: nil)
     }
+    
 
     /*
     // MARK: - Navigation

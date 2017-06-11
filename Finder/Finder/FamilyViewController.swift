@@ -143,7 +143,7 @@ class FamilyViewController: UITableViewController, FamilyMemberCellDelegate {
                 if let viewController = segue.destination as? FindResultViewController {
 
                     viewController.phone = send.phone
-                    
+                    viewController.imageURL = send.imageUrl
                 }
             }
         }
